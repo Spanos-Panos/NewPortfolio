@@ -184,7 +184,119 @@ Portfolio/
 - ✅ Safari 14+
 - ✅ Edge 88+
 
-## 🔧 Setup & Installation
+## 🎨 Cascading CSS System Tutorial
+
+This portfolio uses a powerful cascading CSS system that allows you to easily customize the entire site or individual components.
+
+### � How The System Works
+
+The CSS files are loaded in a specific order to create a cascading effect:
+
+1. **global.css** - Site-wide styles and variables
+2. **app.css** - Enhanced global styles + Tailwind
+3. **Component CSS files** - Individual section styles (Hero, About, Projects, etc.)
+
+### 🌍 Global Styling (Entire Site)
+
+**File: `wwwroot/Assets/css/global.css`**
+
+This file controls the entire website's appearance using CSS custom properties (variables):
+
+```css
+:root {
+    /* Change these to modify the ENTIRE site */
+    --global-bg-primary: #1a1a1a;     /* Main background color */
+    --global-bg-secondary: #2d2d2d;   /* Card/section backgrounds */
+    --global-text-primary: #ffffff;    /* Main text color */
+    --global-primary: #667eea;         /* Primary accent color */
+    --global-secondary: #764ba2;       /* Secondary accent color */
+}
+```
+
+### 🎯 Component-Specific Styling
+
+**Files: `Hero.css`, `AboutMe.css`, `Projects.css`, etc.**
+
+These files style individual sections and can override global styles:
+
+```css
+/* Example in Hero.css - only affects the Hero section */
+.hero-section {
+    background: blue;  /* Hero gets blue background */
+    /* Rest of site keeps global background */
+}
+```
+
+### 🚀 Quick Theme Changes
+
+#### Change Entire Site to Red Theme:
+**Edit `global.css`:**
+```css
+:root {
+    --global-bg-primary: #2c1810;   /* Dark red background */
+    --global-bg-secondary: #3c2015; /* Slightly lighter red */
+    --global-primary: #ff4444;      /* Red accent */
+    --global-secondary: #cc3333;    /* Darker red accent */
+}
+```
+
+#### Override Just the Hero Section:
+**Edit `Hero.css`:**
+```css
+.hero-section {
+    background: linear-gradient(135deg, #000080 0%, #0000ff 100%); /* Blue gradient */
+    /* Now: Site is red, but Hero is blue! */
+}
+```
+
+### 🎨 Pre-Made Themes
+
+Check `theme-examples.css` for ready-to-use themes:
+- 🔴 Red Theme
+- 🟢 Green Theme  
+- 🔵 Blue Theme
+- 🟣 Purple Theme
+- 🌅 Sunset Theme
+- 🌊 Ocean Theme
+- 🖤 Dark Minimalist
+- 🤍 Light Theme
+
+**To apply a theme:**
+1. Open `theme-examples.css`
+2. Copy the CSS variables from your chosen theme
+3. Paste them into the `:root` section of `global.css`
+4. Save and refresh!
+
+### 💡 Pro Tips
+
+**Global Variables Available:**
+- `--global-bg-primary` - Main background
+- `--global-bg-secondary` - Cards/sections
+- `--global-text-primary` - Main text
+- `--global-text-secondary` - Secondary text
+- `--global-primary` - Primary accent
+- `--global-secondary` - Secondary accent
+- `--global-padding-sm/md/lg/xl` - Spacing
+- `--global-radius-sm/md/lg/xl` - Border radius
+- `--global-shadow-sm/md/lg/xl` - Box shadows
+
+**Example: Using Global Variables in Component CSS:**
+```css
+.my-custom-element {
+    background: var(--global-bg-secondary);
+    color: var(--global-text-primary);
+    padding: var(--global-padding-lg);
+    border-radius: var(--global-radius-md);
+    box-shadow: var(--global-shadow-lg);
+}
+```
+
+**Background-Free Components:**
+All component CSS files have had their background styles removed, so you have complete control through `global.css`. Add backgrounds globally or per-component as needed.
+
+---
+
+## 🔧 Modular Customization System
 
 ### 1. Initial Setup
 ```bash

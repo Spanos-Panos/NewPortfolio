@@ -6,9 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio</title>
     <base href="/" />
+    
+    <!-- CSS IMPORT ORDER FOR CASCADING SYSTEM -->
+    <!-- 1. Tailwind CSS (base framework) -->
     <link href="/tailwind.css" rel="stylesheet">
+    
+    <!-- 2. Global CSS (site-wide defaults) -->
+    <link href="/Assets/css/global.css" rel="stylesheet">
+    
+    <!-- 3. App CSS (extends global + Tailwind imports) -->
     <link href="/Assets/css/app.css" rel="stylesheet">
-    <link href="/Assets/css/Theme.css" rel="stylesheet">
+    
+    <!-- 4. Component-specific CSS (can override global/app styles) -->
     <link href="/Assets/css/NavMenu.css" rel="stylesheet">
     <link href="/Assets/css/Hero.css" rel="stylesheet">
     <link href="/Assets/css/AboutMe.css" rel="stylesheet">

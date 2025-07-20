@@ -1,0 +1,53 @@
+@* Modern Navigation Menu with Smooth Scrolling *@
+
+<nav class="navbar">
+    <div class="navbar-container">
+        <!-- Logo/Brand -->
+        <div class="navbar-brand">
+            <a href="#hero" class="brand-link">Portfolio</a>
+        </div>
+
+        <!-- Mobile Menu Toggle -->
+        <div class="navbar-toggle @(isMenuOpen ? "active" : "")" @onclick="ToggleMenu">
+            <span class="navbar-toggle-bar"></span>
+            <span class="navbar-toggle-bar"></span>
+            <span class="navbar-toggle-bar"></span>
+        </div>
+
+        <!-- Navigation Links -->
+        <div class="navbar-menu @(isMenuOpen ? "active" : "")">
+            <a href="#hero" class="navbar-link" @onclick="CloseMenu">Home</a>
+            <a href="#about" class="navbar-link" @onclick="CloseMenu">About</a>
+            <a href="#projects" class="navbar-link" @onclick="CloseMenu">Projects</a>
+            <a href="#skills" class="navbar-link" @onclick="CloseMenu">Skills</a>
+            <a href="#contact" class="navbar-link" @onclick="CloseMenu">Contact</a>
+        </div>
+    </div>
+</nav>
+
+@code {
+    private bool isMenuOpen = false;
+
+    private void ToggleMenu()
+    {
+        isMenuOpen = !isMenuOpen;
+    }
+
+    private void CloseMenu()
+    {
+        isMenuOpen = false;
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            // Add smooth scrolling behavior
+            await JSRuntime.InvokeVoidAsync("addSmoothScrolling");
+        }
+    }
+
+    [Inject]
+    private IJSRuntime JSRuntime { get; set; } = default!;
+}
+

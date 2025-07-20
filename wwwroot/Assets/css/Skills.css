@@ -1,0 +1,291 @@
+/* Skills Section Styles */
+.skills-section {
+    padding: 5rem 0;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+}
+
+.skills-container {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Header */
+.skills-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.skills-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+    .skills-title {
+        font-size: 3rem;
+    }
+}
+
+.skills-subtitle {
+    font-size: 1.125rem;
+    color: #64748b;
+    max-width: 36rem;
+    margin: 0 auto;
+}
+
+/* Skills Content */
+.skills-content {
+    display: grid;
+    gap: 3rem;
+}
+
+.skill-category {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid #7c3aed;
+}
+
+.category-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+/* Skills Grid */
+.skills-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Skill Item */
+.skill-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: #f8fafc;
+    border-radius: 0.5rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.skill-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.skill-icon {
+    font-size: 2rem;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #7c3aed, #ec4899);
+    border-radius: 50%;
+    flex-shrink: 0;
+    box-shadow: 0 2px 4px rgba(124, 58, 237, 0.3);
+}
+
+.skill-info {
+    flex: 1;
+}
+
+.skill-name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+}
+
+/* Skill Level */
+.skill-level {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.skill-bar {
+    flex: 1;
+    height: 0.5rem;
+    background: #e2e8f0;
+    border-radius: 0.25rem;
+    overflow: hidden;
+}
+
+.skill-progress {
+    height: 100%;
+    background: linear-gradient(135deg, #7c3aed, #ec4899);
+    border-radius: 0.25rem;
+    transition: width 1s ease-in-out;
+    animation: progressAnimation 2s ease-out;
+}
+
+@keyframes progressAnimation {
+    from {
+        width: 0%;
+    }
+}
+
+.skill-percentage {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #64748b;
+    min-width: 4rem;
+    text-align: right;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+    .skills-section {
+        padding: 3rem 0;
+    }
+    
+    .skills-container {
+        padding: 0 1rem;
+    }
+    
+    .skills-title {
+        font-size: 2rem;
+    }
+    
+    .skill-category {
+        padding: 1.5rem;
+    }
+    
+    .skill-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.75rem;
+    }
+    
+    .skill-level {
+        width: 100%;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .skill-percentage {
+        text-align: center;
+    }
+}
+
+/* ========================================
+   INDIVIDUAL SKILL CUSTOMIZATION GUIDE
+   ========================================
+   
+   Each skill now has individual CSS classes:
+   
+   📂 PROGRAMMING LANGUAGES CATEGORY:
+   - .skill-category-languages
+   - .category-title-languages
+   - .skills-grid-languages
+   
+   💻 C# SKILL:
+   - .skill-item-csharp
+   - .skill-icon-csharp
+   - .skill-info-csharp
+   - .skill-name-csharp
+   - .skill-level-csharp
+   - .skill-bar-csharp
+   - .skill-progress-csharp
+   - .skill-percentage-csharp
+   
+   🌐 JAVASCRIPT SKILL:
+   - .skill-item-javascript
+   - .skill-icon-javascript
+   - .skill-info-javascript
+   - .skill-name-javascript
+   - .skill-level-javascript
+   - .skill-bar-javascript
+   - .skill-progress-javascript
+   - .skill-percentage-javascript
+   
+   📂 FRAMEWORKS & TECHNOLOGIES CATEGORY:
+   - .skill-category-frameworks
+   - .category-title-frameworks
+   - .skills-grid-frameworks
+   
+   🔧 .NET SKILL:
+   - .skill-item-dotnet
+   - .skill-icon-dotnet, .skill-info-dotnet, .skill-name-dotnet
+   - .skill-level-dotnet, .skill-bar-dotnet, .skill-progress-dotnet, .skill-percentage-dotnet
+   
+   🖥️ WPF SKILL:
+   - .skill-item-wpf
+   - .skill-icon-wpf, .skill-info-wpf, .skill-name-wpf
+   - .skill-level-wpf, .skill-bar-wpf, .skill-progress-wpf, .skill-percentage-wpf
+   
+   📊 ENTITY FRAMEWORK SKILL:
+   - .skill-item-ef
+   - .skill-icon-ef, .skill-info-ef, .skill-name-ef
+   - .skill-level-ef, .skill-bar-ef, .skill-progress-ef, .skill-percentage-ef
+   
+   🎨 TAILWIND CSS SKILL:
+   - .skill-item-tailwind
+   - .skill-icon-tailwind, .skill-info-tailwind, .skill-name-tailwind
+   - .skill-level-tailwind, .skill-bar-tailwind, .skill-progress-tailwind, .skill-percentage-tailwind
+   
+   📂 TOOLS & OTHERS CATEGORY:
+   - .skill-category-tools
+   - .category-title-tools
+   - .skills-grid-tools
+   
+   📝 GIT SKILL:
+   - .skill-item-git
+   - .skill-icon-git, .skill-info-git, .skill-name-git
+   - .skill-level-git, .skill-bar-git, .skill-progress-git, .skill-percentage-git
+   
+   🗄️ SQL SERVER SKILL:
+   - .skill-item-sql
+   - .skill-icon-sql, .skill-info-sql, .skill-name-sql
+   - .skill-level-sql, .skill-bar-sql, .skill-progress-sql, .skill-percentage-sql
+   
+   🔌 RESTFUL APIS SKILL:
+   - .skill-item-api
+   - .skill-icon-api, .skill-info-api, .skill-name-api
+   - .skill-level-api, .skill-bar-api, .skill-progress-api, .skill-percentage-api
+   
+   ⚙️ CLI TOOLS SKILL:
+   - .skill-item-cli
+   - .skill-icon-cli, .skill-info-cli, .skill-name-cli
+   - .skill-level-cli, .skill-bar-cli, .skill-progress-cli, .skill-percentage-cli
+   
+   CUSTOMIZATION EXAMPLES:
+   
+   .skill-item-csharp {
+       background: rgba(59, 130, 246, 0.1);
+       border: 2px solid #3b82f6;
+       border-radius: 15px;
+   }
+   
+   .skill-progress-javascript {
+       background: linear-gradient(90deg, #f1c40f, #e67e22);
+   }
+   
+   .skill-icon-dotnet {
+       color: #7c3aed;
+       font-size: 3rem;
+       animation: pulse 2s infinite;
+   }
+   
+   .skill-percentage-csharp {
+       color: #3b82f6;
+       font-weight: bold;
+       font-size: 1.2rem;
+   }
+   
+   ======================================== */

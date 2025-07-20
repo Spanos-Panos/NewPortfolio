@@ -1,0 +1,280 @@
+/* Projects Section Styles */
+.projects-section {
+    padding: 5rem 0;
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    color: white;
+}
+
+.projects-container {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Header */
+.projects-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.projects-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+    .projects-title {
+        font-size: 3rem;
+    }
+}
+
+.projects-subtitle {
+    font-size: 1.125rem;
+    color: #cbd5e1;
+    max-width: 36rem;
+    margin: 0 auto;
+}
+
+/* Projects Grid */
+.projects-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5rem;
+    }
+}
+
+/* Project Card */
+.project-card {
+    background: white;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.3);
+}
+
+/* Project Image */
+.project-image {
+    width: 100%;
+    height: 12rem;
+    overflow: hidden;
+    background: linear-gradient(45deg, #7c3aed, #ec4899);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.project-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-img {
+    transform: scale(1.05);
+}
+
+/* Text-based placeholders */
+.project-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    height: 100%;
+    width: 100%;
+}
+
+.placeholder-icon {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.placeholder-text {
+    font-size: 1.25rem;
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    letter-spacing: 0.5px;
+}
+
+.project-card:hover .placeholder-icon {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover .placeholder-text {
+    transform: translateY(-2px);
+    transition: transform 0.3s ease;
+}
+
+/* Project Content */
+.project-content {
+    padding: 1.5rem;
+    color: #1e293b;
+}
+
+.project-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 0.75rem;
+}
+
+.project-description {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: #64748b;
+    margin-bottom: 1rem;
+}
+
+/* Tech Tags */
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.tech-tag {
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0.25rem 0.75rem;
+    background: #e2e8f0;
+    color: #475569;
+    border-radius: 1rem;
+}
+
+/* GitHub Button */
+.github-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, #7c3aed, #ec4899);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.875rem;
+    transition: all 0.2s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.github-btn:hover {
+    background: linear-gradient(135deg, #6d28d9, #db2777);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+}
+
+.github-btn::before {
+    content: "⚡";
+    font-size: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+    .projects-section {
+        padding: 3rem 0;
+    }
+    
+    .projects-container {
+        padding: 0 1rem;
+    }
+    
+    .projects-title {
+        font-size: 2rem;
+    }
+    
+    .projects-grid {
+        gap: 1.5rem;
+    }
+    
+    .project-content {
+        padding: 1.25rem;
+    }
+    
+    .project-image {
+        height: 10rem;
+    }
+}
+
+/* ========================================
+   INDIVIDUAL PROJECT CUSTOMIZATION GUIDE
+   ========================================
+   
+   Each project now has individual CSS classes:
+   
+   🔗 URL SHORTENER PROJECT:
+   - .project-card-urlshortener
+   - .project-image-urlshortener  
+   - .placeholder-icon-urlshortener
+   - .project-title-urlshortener
+   - .project-description-urlshortener
+   - .tech-tag-urlshortener-1, .tech-tag-urlshortener-2, .tech-tag-urlshortener-3
+   - .github-btn-urlshortener
+   
+   💰 FINANCE TRACKER PROJECT:
+   - .project-card-finance
+   - .project-image-finance
+   - .placeholder-icon-finance  
+   - .project-title-finance
+   - .project-description-finance
+   - .tech-tag-finance-1, .tech-tag-finance-2, .tech-tag-finance-3
+   - .github-btn-finance
+   
+   🔐 PASSWORD MANAGER PROJECT:
+   - .project-card-password
+   - .project-image-password
+   - .placeholder-icon-password
+   - .project-title-password
+   - .project-description-password
+   - .tech-tag-password-1, .tech-tag-password-2, .tech-tag-password-3
+   - .github-btn-password
+   
+   ⚡ WEBAPI CREATOR PROJECT:
+   - .project-card-webapi
+   - .project-image-webapi
+   - .placeholder-icon-webapi
+   - .project-title-webapi
+   - .project-description-webapi
+   - .tech-tag-webapi-1, .tech-tag-webapi-2, .tech-tag-webapi-3
+   - .github-btn-webapi
+   
+   CUSTOMIZATION EXAMPLES:
+   
+   .project-card-urlshortener {
+       background: rgba(59, 130, 246, 0.1);
+       border: 2px solid #3b82f6;
+       transform: rotate(2deg);
+   }
+   
+   .placeholder-icon-finance {
+       color: #22c55e;
+       font-size: 4rem;
+       animation: bounce 2s infinite;
+   }
+   
+   .tech-tag-password-1 {
+       background: #ef4444;
+       color: white;
+       border-radius: 20px;
+   }
+   
+   ======================================== */

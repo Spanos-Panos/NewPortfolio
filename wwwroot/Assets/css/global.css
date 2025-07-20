@@ -1,0 +1,269 @@
+/* Global/Public CSS - Site-wide styles that can be easily modified */
+
+/* CSS Custom Properties for Global Theming */
+:root {
+    /* Global Background Colors */
+    --global-bg-primary: #1a1a1a;
+    --global-bg-secondary: #2d2d2d;
+    --global-bg-tertiary: #404040;
+    
+    /* Global Text Colors */
+    --global-text-primary: #ffffff;
+    --global-text-secondary: #e0e0e0;
+    --global-text-tertiary: #b0b0b0;
+    --global-text-muted: #888888;
+    
+    /* Global Accent Colors */
+    --global-primary: #667eea;
+    --global-secondary: #764ba2;
+    --global-accent: #f093fb;
+    --global-success: #10b981;
+    --global-warning: #f59e0b;
+    --global-error: #ef4444;
+    
+    /* Global Spacing */
+    --global-padding-sm: 0.5rem;
+    --global-padding-md: 1rem;
+    --global-padding-lg: 2rem;
+    --global-padding-xl: 4rem;
+    
+    /* Global Border Radius */
+    --global-radius-sm: 0.25rem;
+    --global-radius-md: 0.5rem;
+    --global-radius-lg: 1rem;
+    --global-radius-xl: 2rem;
+    
+    /* Global Shadows */
+    --global-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --global-shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --global-shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
+    --global-shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.2);
+    
+    /* Global Transitions */
+    --global-transition-fast: 0.15s ease;
+    --global-transition-normal: 0.3s ease;
+    --global-transition-slow: 0.5s ease;
+}
+
+/* Global Body Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background: var(--global-bg-primary);
+    color: var(--global-text-primary);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    transition: var(--global-transition-normal);
+}
+
+/* Global Background Pattern */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--global-bg-primary);
+    background-image: 
+        radial-gradient(circle at 25% 25%, var(--global-primary) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, var(--global-secondary) 0%, transparent 50%);
+    background-size: 100% 100%;
+    opacity: 0.03;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Global Scrollbar Styles */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--global-bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--global-primary);
+    border-radius: var(--global-radius-sm);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--global-secondary);
+}
+
+/* Global Section Styles */
+.global-section {
+    background: var(--global-bg-primary);
+    color: var(--global-text-primary);
+    min-height: 100vh;
+    padding: var(--global-padding-xl) var(--global-padding-md);
+    transition: var(--global-transition-normal);
+}
+
+/* Global Container */
+.global-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--global-padding-md);
+}
+
+/* Global Glass Effect */
+.global-glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--global-radius-lg);
+    box-shadow: var(--global-shadow-lg);
+    transition: var(--global-transition-normal);
+}
+
+.global-glass:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+    box-shadow: var(--global-shadow-xl);
+}
+
+/* Global Button Styles */
+.global-btn {
+    background: var(--global-primary);
+    color: var(--global-text-primary);
+    border: none;
+    padding: var(--global-padding-sm) var(--global-padding-md);
+    border-radius: var(--global-radius-md);
+    cursor: pointer;
+    transition: var(--global-transition-fast);
+    text-decoration: none;
+    display: inline-block;
+    font-weight: 500;
+}
+
+.global-btn:hover {
+    background: var(--global-secondary);
+    transform: translateY(-1px);
+    box-shadow: var(--global-shadow-md);
+}
+
+.global-btn-secondary {
+    background: var(--global-bg-secondary);
+    border: 1px solid var(--global-primary);
+}
+
+.global-btn-secondary:hover {
+    background: var(--global-primary);
+}
+
+/* Global Text Styles */
+.global-heading {
+    color: var(--global-text-primary);
+    font-weight: 600;
+    margin-bottom: var(--global-padding-md);
+}
+
+.global-text {
+    color: var(--global-text-secondary);
+    margin-bottom: var(--global-padding-md);
+}
+
+.global-text-muted {
+    color: var(--global-text-muted);
+}
+
+/* Global Card Styles */
+.global-card {
+    background: var(--global-bg-secondary);
+    border-radius: var(--global-radius-lg);
+    padding: var(--global-padding-lg);
+    box-shadow: var(--global-shadow-md);
+    transition: var(--global-transition-normal);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.global-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--global-shadow-lg);
+    background: var(--global-bg-tertiary);
+}
+
+/* Global Form Styles */
+.global-input {
+    background: var(--global-bg-secondary);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--global-text-primary);
+    padding: var(--global-padding-sm) var(--global-padding-md);
+    border-radius: var(--global-radius-md);
+    width: 100%;
+    transition: var(--global-transition-fast);
+}
+
+.global-input:focus {
+    outline: none;
+    border-color: var(--global-primary);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.global-textarea {
+    background: var(--global-bg-secondary);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--global-text-primary);
+    padding: var(--global-padding-sm) var(--global-padding-md);
+    border-radius: var(--global-radius-md);
+    width: 100%;
+    min-height: 120px;
+    resize: vertical;
+    transition: var(--global-transition-fast);
+}
+
+.global-textarea:focus {
+    outline: none;
+    border-color: var(--global-primary);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* Global Utility Classes */
+.global-text-center { text-align: center; }
+.global-text-left { text-align: left; }
+.global-text-right { text-align: right; }
+
+.global-flex { display: flex; }
+.global-flex-center { display: flex; align-items: center; justify-content: center; }
+.global-flex-between { display: flex; align-items: center; justify-content: space-between; }
+.global-flex-column { display: flex; flex-direction: column; }
+
+.global-grid { display: grid; }
+.global-grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--global-padding-lg); }
+.global-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--global-padding-lg); }
+
+.global-hidden { display: none; }
+.global-visible { display: block; }
+
+/* Global Responsive */
+@media (max-width: 768px) {
+    .global-grid-2,
+    .global-grid-3 {
+        grid-template-columns: 1fr;
+    }
+    
+    .global-section {
+        padding: var(--global-padding-lg) var(--global-padding-md);
+    }
+    
+    .global-container {
+        padding: 0 var(--global-padding-sm);
+    }
+}
+
+/* Example of how to change global theme easily */
+/*
+To change the entire site to a red theme, uncomment and modify these:
+
+:root {
+    --global-bg-primary: #2c1810;
+    --global-bg-secondary: #3c2015;
+    --global-bg-tertiary: #4c281a;
+    --global-primary: #ff4444;
+    --global-secondary: #cc3333;
+    --global-accent: #ff6666;
+}
+*/

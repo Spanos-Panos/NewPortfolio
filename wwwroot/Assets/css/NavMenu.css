@@ -23,7 +23,7 @@
 .navbar-brand {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--primary-color);
+    color: #ffffff;
 }
 
 .brand-link {
@@ -33,7 +33,7 @@
 }
 
 .brand-link:hover {
-    color: var(--accent-color);
+    color: #667eea;
 }
 
 /* Navigation Menu */
@@ -45,7 +45,7 @@
 
 .navbar-link {
     text-decoration: none;
-    color: var(--text-color);
+    color: #e0e0e0;
     font-weight: 500;
     padding: 0.5rem 1rem;
     border-radius: 8px;
@@ -54,8 +54,8 @@
 }
 
 .navbar-link:hover {
-    color: var(--accent-color);
-    background: rgba(var(--accent-rgb), 0.1);
+    color: #667eea;
+    background: rgba(102, 126, 234, 0.1);
 }
 
 .navbar-link:before {
@@ -65,7 +65,7 @@
     left: 50%;
     width: 0;
     height: 2px;
-    background: var(--accent-color);
+    background: #667eea;
     transition: all 0.3s ease;
     transform: translateX(-50%);
 }
@@ -86,7 +86,7 @@
 .navbar-toggle-bar {
     width: 25px;
     height: 3px;
-    background: var(--text-color);
+    background: #e0e0e0;
     transition: all 0.3s ease;
     border-radius: 2px;
 }
@@ -141,7 +141,7 @@
     }
 
     .navbar-link:hover {
-        background: rgba(var(--accent-rgb), 0.1);
+        background: rgba(102, 126, 234, 0.1);
     }
 
     .navbar-link:before {
@@ -151,7 +151,7 @@
 
 /* Scrolled navbar style */
 .navbar.scrolled {
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(0, 0, 0, 0.1);
     border-bottom-color: rgba(0, 0, 0, 0.1);
 }
 

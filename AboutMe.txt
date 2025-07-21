@@ -1,0 +1,79 @@
+About Me
+
+Full Name: Spanos Panagiotis
+Date of Birth: 24 June 2005
+Location: Lamia, Greece
+Languages:
+
+Greek (Native)
+
+English (B2 – Lower)
+
+Romanian (Understanding only)
+
+Career Goals:
+Aspiring Full Stack Developer with a strong focus on Backend Development using the .NET ecosystem. Open to remote, part-time or full-time opportunities. Passionate about building real-world applications and constantly learning new technologies.
+
+Education:
+
+Vocational High School (EPAL):
+Degree in Electrical Systems, Installations, and Networks Engineering – Grade: 16.4/20
+Completed in 2023 (3-year program)
+
+IEK (Institute of Vocational Training):
+Degree in Computer Applications Technician (Multimedia / Web Designer – Developer / Videogames)
+Completed coursework in June 2025. Currently completing a 6-month internship related to computer repair and customer service.
+
+Experience:
+Currently doing a technical internship focused on hardware repairs and customer support.
+All programming skills and project experience have been acquired through self-learning and personal projects.
+
+Skills:
+
+Programming Languages & Frameworks:
+
+C#, .NET, Entity Framework Core
+
+SQL
+
+HTML, CSS, JavaScript
+
+Tailwind CSS (intermediate)
+
+WPF (intermediate)
+
+REST APIs
+
+Bash / Terminal
+
+Unit Testing
+
+Prompt Engineering
+
+Tools & Platforms:
+
+Git & GitHub
+
+Postman (intermediate)
+
+Visual Studio, VS Code
+
+Microsoft Office
+
+Video editing tools
+
+Personal Traits:
+
+Social and cooperative
+
+Strong self-learning ability
+
+Technically versatile
+
+Focused on writing clean, maintainable code
+
+Design Preference:
+Minimal and clean design with a little something extra to make it stand out.
+
+Portfolio Vision:
+To showcase my skills and projects with a professional look and interactive experience. Open to feedback and constantly improving.

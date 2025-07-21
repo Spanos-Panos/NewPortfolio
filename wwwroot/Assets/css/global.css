@@ -2,24 +2,34 @@
 
 /* CSS Custom Properties for Global Theming */
 :root {
-    /* Global Background Colors */
-    --global-bg-primary: #1a1a1a;
-    --global-bg-secondary: #2d2d2d;
-    --global-bg-tertiary: #404040;
+    /* .NET Inspired Background Colors */
+    --global-bg-primary: #0a0a0a;
+    --global-bg-secondary: rgba(26, 26, 26, 0.8);
+    --global-bg-tertiary: rgba(45, 45, 45, 0.6);
     
-    /* Global Text Colors */
+    /* .NET Inspired Text Colors */
     --global-text-primary: #ffffff;
     --global-text-secondary: #e0e0e0;
     --global-text-tertiary: #b0b0b0;
     --global-text-muted: #888888;
     
-    /* Global Accent Colors */
+    /* .NET Brand Colors */
     --global-primary: #667eea;
     --global-secondary: #764ba2;
     --global-accent: #f093fb;
     --global-success: #10b981;
     --global-warning: #f59e0b;
     --global-error: #ef4444;
+    
+    /* Microsoft-inspired accent colors */
+    --global-azure: #0078d4;
+    --global-teams: #6264a7;
+    --global-dotnet: #512bd4;
+    
+    /* Glass effects */
+    --global-glass-bg: rgba(255, 255, 255, 0.05);
+    --global-glass-border: rgba(255, 255, 255, 0.1);
+    --global-glass-blur: blur(20px);
     
     /* Global Spacing */
     --global-padding-sm: 0.5rem;
@@ -33,11 +43,11 @@
     --global-radius-lg: 1rem;
     --global-radius-xl: 2rem;
     
-    /* Global Shadows */
-    --global-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
-    --global-shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-    --global-shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
-    --global-shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.2);
+    /* Enhanced Glass Shadows */
+    --global-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.15);
+    --global-shadow-md: 0 8px 32px rgba(0, 0, 0, 0.25);
+    --global-shadow-lg: 0 16px 64px rgba(0, 0, 0, 0.35);
+    --global-shadow-xl: 0 24px 96px rgba(0, 0, 0, 0.45);
     
     /* Global Transitions */
     --global-transition-fast: 0.15s ease;
@@ -49,15 +59,18 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-    background: var(--global-bg-primary);
+    background: #0a0a0a;
     color: var(--global-text-primary);
     margin: 0;
     padding: 0;
     overflow-x: hidden;
     transition: var(--global-transition-normal);
+    position: relative;
+    /* CSS custom property for smooth scroll progress */
+    --scroll-progress: 0;
 }
 
-/* Global Background Pattern */
+/* Dynamic .NET Purple Gradient Background - Progressive Vertical Center Line */
 body::before {
     content: '';
     position: fixed;
@@ -65,41 +78,97 @@ body::before {
     left: 0;
     right: 0;
     bottom: 0;
-    background: var(--global-bg-primary);
-    background-image: 
-        radial-gradient(circle at 25% 25%, var(--global-primary) 0%, transparent 50%),
-        radial-gradient(circle at 75% 75%, var(--global-secondary) 0%, transparent 50%);
-    background-size: 100% 100%;
-    opacity: 0.03;
+    background: linear-gradient(
+        to right,
+        #0a0a0a 0%,
+        #1a0a1a calc(20% - var(--scroll-progress) * 10%),
+        #1a0f2e calc(40% - var(--scroll-progress) * 15%),
+        #2a1540 calc(47% - var(--scroll-progress) * 12%),
+        #3d2060 50%,
+        #2a1540 calc(53% + var(--scroll-progress) * 12%),
+        #1a0f2e calc(60% + var(--scroll-progress) * 15%),
+        #1a0a1a calc(80% + var(--scroll-progress) * 10%),
+        #0a0a0a 100%
+    );
+    z-index: -2;
+    transition: background 0.1s ease;
+}
+
+/* Enhanced scroll-triggered glassmorphism particles */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 50% 50%, rgba(102, 126, 234, 0.02) 0%, transparent 40%),
+        radial-gradient(circle at 30% 30%, rgba(118, 75, 162, 0.015) 0%, transparent 35%),
+        radial-gradient(circle at 70% 70%, rgba(240, 147, 251, 0.01) 0%, transparent 30%);
     z-index: -1;
+    opacity: 0;
+    transition: opacity 0.4s ease;
     pointer-events: none;
+    transform: scale(0.5);
 }
 
-/* Global Scrollbar Styles */
-::-webkit-scrollbar {
-    width: 8px;
+/* Enhanced glassmorphism scroll effect */
+body.scrolled::after {
+    opacity: 1;
+    transform: scale(1);
+    animation: scrollGlassEffect 6s ease-in-out infinite;
 }
 
-::-webkit-scrollbar-track {
-    background: var(--global-bg-secondary);
+/* Scroll-triggered glassmorphism animation */
+@keyframes scrollGlassEffect {
+    0%, 100% { 
+        transform: scale(1) rotate(0deg);
+        opacity: 0.3;
+    }
+    50% { 
+        transform: scale(1.02) rotate(0.5deg);
+        opacity: 0.6;
+    }
 }
 
-::-webkit-scrollbar-thumb {
-    background: var(--global-primary);
-    border-radius: var(--global-radius-sm);
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: var(--global-secondary);
-}
-
-/* Global Section Styles */
+/* Enhanced glassmorphism effects for sections */
 .global-section {
-    background: var(--global-bg-primary);
+    background: transparent;
     color: var(--global-text-primary);
     min-height: 100vh;
     padding: var(--global-padding-xl) var(--global-padding-md);
     transition: var(--global-transition-normal);
+    position: relative;
+}
+
+.global-section.glass-visible {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.6s ease;
+}
+
+/* Enhanced .NET Scrollbar Styles */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(26, 26, 26, 0.8);
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, var(--global-primary), var(--global-secondary));
+    border-radius: 6px;
+    border: 2px solid rgba(26, 26, 26, 0.8);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #5a67d8, var(--global-primary));
+    box-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
 }
 
 /* Global Container */
@@ -109,49 +178,96 @@ body::before {
     padding: 0 var(--global-padding-md);
 }
 
-/* Global Glass Effect */
+/* Enhanced .NET Glassmorphism Effects */
 .global-glass {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: var(--global-radius-lg);
+    background: var(--global-glass-bg);
+    backdrop-filter: var(--global-glass-blur);
+    border: 1px solid var(--global-glass-border);
+    border-radius: var(--global-radius-xl);
     box-shadow: var(--global-shadow-lg);
     transition: var(--global-transition-normal);
+    position: relative;
+    overflow: hidden;
+}
+
+.global-glass::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, 
+        rgba(102, 126, 234, 0.03) 0%, 
+        rgba(118, 75, 162, 0.02) 50%, 
+        rgba(240, 147, 251, 0.01) 100%);
+    opacity: 0;
+    transition: opacity var(--global-transition-normal);
+    pointer-events: none;
 }
 
 .global-glass:hover {
-    background: rgba(255, 255, 255, 0.15);
-    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-4px);
     box-shadow: var(--global-shadow-xl);
+    border-color: rgba(102, 126, 234, 0.2);
 }
 
-/* Global Button Styles */
+.global-glass:hover::before {
+    opacity: 1;
+}
+
+/* Enhanced .NET Button Styles */
 .global-btn {
-    background: var(--global-primary);
+    background: linear-gradient(135deg, var(--global-primary), var(--global-secondary));
     color: var(--global-text-primary);
     border: none;
-    padding: var(--global-padding-sm) var(--global-padding-md);
-    border-radius: var(--global-radius-md);
+    padding: var(--global-padding-md) var(--global-padding-lg);
+    border-radius: var(--global-radius-lg);
     cursor: pointer;
-    transition: var(--global-transition-fast);
+    transition: var(--global-transition-normal);
     text-decoration: none;
     display: inline-block;
-    font-weight: 500;
+    font-weight: 600;
+    backdrop-filter: var(--global-glass-blur);
+    border: 1px solid var(--global-glass-border);
+    box-shadow: var(--global-shadow-md);
+    position: relative;
+    overflow: hidden;
+}
+
+.global-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.global-btn:hover::before {
+    left: 100%;
 }
 
 .global-btn:hover {
-    background: var(--global-secondary);
-    transform: translateY(-1px);
-    box-shadow: var(--global-shadow-md);
+    background: linear-gradient(135deg, #5a67d8, var(--global-primary));
+    transform: translateY(-2px);
+    box-shadow: var(--global-shadow-lg);
 }
 
 .global-btn-secondary {
-    background: var(--global-bg-secondary);
-    border: 1px solid var(--global-primary);
+    background: var(--global-glass-bg);
+    border: 2px solid rgba(102, 126, 234, 0.6);
+    color: var(--global-primary);
+    backdrop-filter: var(--global-glass-blur);
 }
 
 .global-btn-secondary:hover {
-    background: var(--global-primary);
+    background: linear-gradient(135deg, var(--global-primary), var(--global-secondary));
+    color: white;
+    border-color: transparent;
 }
 
 /* Global Text Styles */
@@ -170,55 +286,85 @@ body::before {
     color: var(--global-text-muted);
 }
 
-/* Global Card Styles */
+/* Enhanced .NET Card Styles */
 .global-card {
-    background: var(--global-bg-secondary);
-    border-radius: var(--global-radius-lg);
+    background: var(--global-glass-bg);
+    backdrop-filter: var(--global-glass-blur);
+    border-radius: var(--global-radius-xl);
     padding: var(--global-padding-lg);
     box-shadow: var(--global-shadow-md);
     transition: var(--global-transition-normal);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--global-glass-border);
+    position: relative;
+    overflow: hidden;
+}
+
+.global-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, 
+        rgba(102, 126, 234, 0.05) 0%, 
+        rgba(118, 75, 162, 0.03) 50%, 
+        rgba(240, 147, 251, 0.02) 100%);
+    opacity: 0;
+    transition: opacity var(--global-transition-normal);
+    pointer-events: none;
 }
 
 .global-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--global-shadow-lg);
-    background: var(--global-bg-tertiary);
+    transform: translateY(-8px);
+    box-shadow: var(--global-shadow-xl);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(102, 126, 234, 0.2);
 }
 
-/* Global Form Styles */
+.global-card:hover::before {
+    opacity: 1;
+}
+
+/* Enhanced .NET Form Styles */
 .global-input {
-    background: var(--global-bg-secondary);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: var(--global-glass-bg);
+    backdrop-filter: var(--global-glass-blur);
+    border: 2px solid var(--global-glass-border);
     color: var(--global-text-primary);
-    padding: var(--global-padding-sm) var(--global-padding-md);
-    border-radius: var(--global-radius-md);
+    padding: var(--global-padding-md);
+    border-radius: var(--global-radius-lg);
     width: 100%;
-    transition: var(--global-transition-fast);
+    transition: var(--global-transition-normal);
+    font-family: inherit;
 }
 
 .global-input:focus {
     outline: none;
     border-color: var(--global-primary);
     box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    background: rgba(255, 255, 255, 0.08);
 }
 
 .global-textarea {
-    background: var(--global-bg-secondary);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: var(--global-glass-bg);
+    backdrop-filter: var(--global-glass-blur);
+    border: 2px solid var(--global-glass-border);
     color: var(--global-text-primary);
-    padding: var(--global-padding-sm) var(--global-padding-md);
-    border-radius: var(--global-radius-md);
+    padding: var(--global-padding-md);
+    border-radius: var(--global-radius-lg);
     width: 100%;
     min-height: 120px;
     resize: vertical;
-    transition: var(--global-transition-fast);
+    transition: var(--global-transition-normal);
+    font-family: inherit;
 }
 
 .global-textarea:focus {
     outline: none;
     border-color: var(--global-primary);
     box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    background: rgba(255, 255, 255, 0.08);
 }
 
 /* Global Utility Classes */

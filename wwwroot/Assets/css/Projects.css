@@ -1,144 +1,321 @@
+/* Projects Section - .NET Themed with Difficulty Levels */
 .projects-section {
-    padding: 5rem 0;
+    padding: 6rem 0;
     color: white;
+    position: relative;
 }
 
 .projects-container {
-    max-width: 72rem;
+    max-width: 80rem;
     margin: 0 auto;
     padding: 0 2rem;
 }
 
-/* Header */
+/* Section Header */
 .projects-header {
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 5rem;
 }
 
 .projects-title {
-    font-size: 2.5rem;
+    font-size: 3rem;
     font-weight: 700;
-    color: white;
+    text-align: center;
     margin-bottom: 1rem;
+    position: relative;
 }
 
 @media (min-width: 768px) {
-    .projects-title {
-        font-size: 3rem;
+    .projects-title .title-gradient {
+        font-size: 3.5rem;
     }
 }
 
 .projects-subtitle {
     font-size: 1.125rem;
-    color: #cbd5e1;
-    max-width: 36rem;
+    color: var(--global-text-tertiary);
+    text-align: center;
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+/* Difficulty Sections */
+.difficulty-section {
+    margin-bottom: 5rem;
+}
+
+.difficulty-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.difficulty-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+}
+
+.easy-badge {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(22, 163, 74, 0.1));
+    border-color: rgba(34, 197, 94, 0.3);
+}
+
+.medium-badge {
+    background: linear-gradient(135deg, rgba(251, 146, 60, 0.2), rgba(249, 115, 22, 0.1));
+    border-color: rgba(251, 146, 60, 0.3);
+}
+
+.badge-icon {
+    font-size: 1.2rem;
+}
+
+.difficulty-description {
+    color: rgba(255, 255, 255, 0.85); /* Direct bright color */
+    font-size: 1rem;
+    max-width: 30rem;
     margin: 0 auto;
 }
 
-/* Projects Grid */
+/* Project Grids */
 .projects-grid {
     display: grid;
-    grid-template-columns: 1fr;
     gap: 2rem;
 }
 
+.easy-grid {
+    grid-template-columns: 1fr;
+}
+
 @media (min-width: 768px) {
-    .projects-grid {
+    .easy-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .easy-grid {
+        grid-template-columns: repeat(3, 1fr);
         gap: 2.5rem;
     }
 }
 
-/* Project Card */
+.medium-grid {
+    display: flex;
+    justify-content: center;
+}
+
+/* Project Cards */
 .project-card {
-    background: white;
-    border-radius: 1rem;
+    position: relative;
+    backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 
+        0 10px 40px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.3);
+    transform: translateY(-8px);
+    box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.4),
+        0 0 40px rgba(102, 126, 234, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    border-color: rgba(102, 126, 234, 0.4);
 }
 
-/* Project Image */
-.project-image {
-    width: 100%;
-    height: 12rem;
-    overflow: hidden;
-    background: linear-gradient(45deg, #7c3aed, #ec4899);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-}
-
-.project-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.project-card:hover .project-img {
-    transform: scale(1.05);
-}
-
-/* Text-based placeholders */
-.project-placeholder {
+/* Easy Cards */
+.easy-card {
+    max-width: 350px;
+    min-height: 420px; /* Ensure consistent height */
     display: flex;
     flex-direction: column;
+}
+
+.easy-card .project-header {
+    padding: 1.5rem 1.5rem 0;
+}
+
+.easy-card .project-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 0 1.5rem 1.5rem;
+    justify-content: space-between;
+}
+
+.easy-card .project-description {
+    flex: 1;
+    min-height: 4em; /* Consistent description space */
+    margin-bottom: 1rem;
+}
+
+.easy-card .project-tech {
+    margin-bottom: 1.5rem;
+}
+
+.easy-card .project-actions {
+    margin-top: auto; /* Push to bottom */
+}
+
+.easy-card:hover {
+    border-color: rgba(34, 197, 94, 0.3);
+    box-shadow: 
+        0 15px 50px rgba(0, 0, 0, 0.35),
+        0 0 30px rgba(34, 197, 94, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+/* Medium Cards - Featured and Larger */
+.medium-card {
+    max-width: 500px;
+    min-height: 400px;
+    background: rgba(255, 255, 255, 0.12);
+    border: 2px solid rgba(251, 146, 60, 0.3);
+}
+
+.medium-card.featured-card {
+    position: relative;
+    overflow: visible;
+}
+
+.card-glow {
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(135deg, var(--global-primary), var(--global-secondary), var(--global-accent));
+    border-radius: 22px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.medium-card:hover .card-glow {
+    opacity: 0.6;
+}
+
+.medium-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    border-color: rgba(251, 146, 60, 0.5);
+    box-shadow: 
+        0 25px 70px rgba(0, 0, 0, 0.5),
+        0 0 50px rgba(251, 146, 60, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* Card Header */
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem 1rem;
+}
+
+.project-icon {
+    font-size: 2.5rem;
+    display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    color: white;
-    height: 100%;
-    width: 100%;
+    width: 60px;
+    height: 60px;
+    border-radius: 15px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.placeholder-icon {
-    font-size: 3rem;
-    margin-bottom: 0.5rem;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
-}
-
-.placeholder-text {
-    font-size: 1.25rem;
+.difficulty-indicator {
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
     font-weight: 600;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
-.project-card:hover .placeholder-icon {
-    transform: scale(1.1);
-    transition: transform 0.3s ease;
+.easy-indicator {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.3), rgba(22, 163, 74, 0.2));
+    color: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(34, 197, 94, 0.4);
 }
 
-.project-card:hover .placeholder-text {
-    transform: translateY(-2px);
-    transition: transform 0.3s ease;
+.medium-indicator {
+    background: linear-gradient(135deg, rgba(251, 146, 60, 0.3), rgba(249, 115, 22, 0.2));
+    color: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(251, 146, 60, 0.4);
 }
 
 /* Project Content */
 .project-content {
-    padding: 1.5rem;
-    color: #1e293b;
+    padding: 0 1.5rem 1.5rem;
 }
 
 .project-title {
-    font-size: 1.25rem;
+    font-size: 1.4rem;
     font-weight: 700;
-    color: #1e293b;
+    color: white;
     margin-bottom: 0.75rem;
+    line-height: 1.3;
+}
+
+.medium-card .project-title {
+    font-size: 1.8rem;
+    background: linear-gradient(135deg, var(--global-primary), var(--global-secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .project-description {
-    font-size: 0.875rem;
-    line-height: 1.5;
-    color: #64748b;
-    margin-bottom: 1rem;
+    color: rgba(255, 255, 255, 0.85); /* Direct bright color */
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+}
+
+.medium-card .project-description {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+}
+
+/* Project Features (Medium Cards Only) */
+.project-features {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.9rem;
+}
+
+.feature-icon {
+    font-size: 1.1rem;
 }
 
 /* Tech Tags */
@@ -146,133 +323,171 @@
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
 }
 
 .tech-tag {
-    font-size: 0.75rem;
+    padding: 0.4rem 0.8rem;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(118, 75, 162, 0.1));
+    border: 1px solid rgba(102, 126, 234, 0.3);
+    border-radius: 20px;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.8rem;
     font-weight: 500;
-    padding: 0.25rem 0.75rem;
-    background: #e2e8f0;
-    color: #475569;
-    border-radius: 1rem;
+    transition: all 0.3s ease;
 }
 
-/* GitHub Button */
-.github-btn {
+.tech-tag:hover {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.3), rgba(118, 75, 162, 0.2));
+    border-color: rgba(102, 126, 234, 0.5);
+    color: rgba(255, 255, 255, 0.95);
+    transform: translateY(-1px);
+}
+
+/* Project Actions */
+.project-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center; /* Center buttons for symmetry */
+    align-items: center;
+    padding-top: 0.8rem;
+}
+
+/* Project Buttons */
+.btn {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 0.5rem;
-    background: linear-gradient(135deg, #7c3aed, #ec4899);
-    color: white;
-    padding: 0.75rem 1.5rem;
-    border-radius: 0.5rem;
+    padding: 0.875rem 1.75rem;
+    min-width: 160px; /* Increased for better consistency */
+    width: 160px; /* Fixed width for all buttons */
+    background: rgba(102, 126, 234, 0.2);
+    border: 1px solid rgba(102, 126, 234, 0.3);
+    border-radius: 12px;
+    color: rgba(255, 255, 255, 0.95);
     text-decoration: none;
     font-weight: 600;
-    font-size: 0.875rem;
-    transition: all 0.2s ease;
-    border: none;
-    cursor: pointer;
+    font-size: 0.9rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    white-space: nowrap; /* Prevent text wrapping */
 }
 
-.github-btn:hover {
-    background: linear-gradient(135deg, #6d28d9, #db2777);
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+.btn:hover {
+    background: rgba(102, 126, 234, 0.3);
+    border-color: rgba(102, 126, 234, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
 }
 
-.github-btn::before {
-    content: "⚡";
+.btn-secondary {
+    background: rgba(118, 75, 162, 0.2);
+    border-color: rgba(118, 75, 162, 0.3);
+}
+
+.btn-secondary:hover {
+    background: rgba(118, 75, 162, 0.3);
+    border-color: rgba(118, 75, 162, 0.5);
+    box-shadow: 0 8px 25px rgba(118, 75, 162, 0.4);
+}
+
+.btn-primary {
+    background: rgba(102, 126, 234, 0.3);
+    border-color: rgba(102, 126, 234, 0.4);
+}
+
+.btn-primary:hover {
+    background: rgba(102, 126, 234, 0.4);
+    border-color: rgba(102, 126, 234, 0.6);
+}
+
+.btn-icon {
     font-size: 1rem;
 }
 
-/* Responsive adjustments */
-@media (max-width: 640px) {
+/* Icon animations */
+.icon {
+    font-size: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.icon-bounce {
+    animation: none; /* Default state */
+}
+
+.btn:hover .icon-bounce {
+    animation: iconBounce 0.6s ease-in-out;
+}
+
+@keyframes iconBounce {
+    0%, 100% { transform: translateY(0); }
+    25% { transform: translateY(-3px); }
+    50% { transform: translateY(0); }
+    75% { transform: translateY(-2px); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
     .projects-section {
-        padding: 3rem 0;
+        padding: 4rem 0;
     }
     
     .projects-container {
         padding: 0 1rem;
     }
     
-    .projects-title {
-        font-size: 2rem;
+    .projects-title .title-gradient {
+        font-size: 2.5rem;
     }
     
-    .projects-grid {
-        gap: 1.5rem;
+    .difficulty-section {
+        margin-bottom: 3rem;
+    }
+    
+    .card-header {
+        padding: 1rem 1.5rem 0.5rem;
     }
     
     .project-content {
-        padding: 1.25rem;
+        padding: 0 1.5rem 1.5rem;
     }
     
-    .project-image {
-        height: 10rem;
+    .project-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 2rem;
+    }
+    
+    .medium-card {
+        max-width: 100%;
+        min-height: auto;
+    }
+    
+    .project-features {
+        padding: 1rem;
+    }
+    
+    /* Mobile button adjustments */
+    .btn {
+        padding: 0.75rem 1.25rem;
+        min-width: 140px;
+        width: 140px; /* Smaller fixed width on mobile */
+        font-size: 0.85rem;
+    }
+    
+    .project-actions {
+        gap: 0.75rem;
+        flex-direction: column; /* Stack buttons vertically on very small screens */
+        align-items: center; /* Center the buttons */
     }
 }
 
-/* ========================================
-   INDIVIDUAL PROJECT CUSTOMIZATION GUIDE
-   ========================================
-   
-   Each project now has individual CSS classes:
-   
-   🔗 URL SHORTENER PROJECT:
-   - .project-card-urlshortener
-   - .project-image-urlshortener  
-   - .placeholder-icon-urlshortener
-   - .project-title-urlshortener
-   - .project-description-urlshortener
-   - .tech-tag-urlshortener-1, .tech-tag-urlshortener-2, .tech-tag-urlshortener-3
-   - .github-btn-urlshortener
-   
-   💰 FINANCE TRACKER PROJECT:
-   - .project-card-finance
-   - .project-image-finance
-   - .placeholder-icon-finance  
-   - .project-title-finance
-   - .project-description-finance
-   - .tech-tag-finance-1, .tech-tag-finance-2, .tech-tag-finance-3
-   - .github-btn-finance
-   
-   🔐 PASSWORD MANAGER PROJECT:
-   - .project-card-password
-   - .project-image-password
-   - .placeholder-icon-password
-   - .project-title-password
-   - .project-description-password
-   - .tech-tag-password-1, .tech-tag-password-2, .tech-tag-password-3
-   - .github-btn-password
-   
-   ⚡ WEBAPI CREATOR PROJECT:
-   - .project-card-webapi
-   - .project-image-webapi
-   - .placeholder-icon-webapi
-   - .project-title-webapi
-   - .project-description-webapi
-   - .tech-tag-webapi-1, .tech-tag-webapi-2, .tech-tag-webapi-3
-   - .github-btn-webapi
-   
-   CUSTOMIZATION EXAMPLES:
-   
-   .project-card-urlshortener {
-       background: rgba(59, 130, 246, 0.1);
-       border: 2px solid #3b82f6;
-       transform: rotate(2deg);
-   }
-   
-   .placeholder-icon-finance {
-       color: #22c55e;
-       font-size: 4rem;
-       animation: bounce 2s infinite;
-   }
-   
-   .tech-tag-password-1 {
-       background: #ef4444;
-       color: white;
-       border-radius: 20px;
-   }
-   
-   ======================================== */
+@media (min-width: 480px) and (max-width: 768px) {
+    .project-actions {
+        flex-direction: row; /* Side by side on larger mobile screens */
+    }
+}
+

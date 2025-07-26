@@ -10,13 +10,13 @@ document.addEventListener('DOMContentLoaded', function() {
         // Calculate scroll percentage based on viewport height
         const viewportHeight = window.innerHeight;
         const maxScrollForEffect = viewportHeight * 2; // Effect completes after 2 viewport heights
-        const scrollPercentage = Math.min(currentScrollY / maxScrollForEffect, 1); // Clamp to 1 (100%)
+        const scrollPercentage = Math.min(currentScrollY / maxScrollForEffect, 1.95); // Clamp to 1 (100%)
         
         // Apply smooth gradient expansion using CSS custom property
         body.style.setProperty('--scroll-progress', scrollPercentage);
         
         // Add scrolled class for other effects when scrolling starts
-        if (currentScrollY > 50) {
+        if (currentScrollY > 40) {
             body.classList.add('scrolled');
         } else {
             body.classList.remove('scrolled');

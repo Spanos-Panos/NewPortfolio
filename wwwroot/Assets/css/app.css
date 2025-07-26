@@ -48,7 +48,7 @@ a {
 
 a:hover {
     color: var(--global-secondary);
-    text-decoration: underline;
+    text-decoration: none; /* Remove underline */
 }
 
 /* Enhanced list styles */

@@ -1,0 +1,28 @@
+@inject IJSRuntime JSRuntime
+
+<div id="scroll-progress" class="scroll-progress-container">
+    <div class="scroll-progress-circle">
+        <svg class="scroll-progress-svg" width="60" height="60">
+            <circle cx="30" cy="30" r="25" class="scroll-progress-bg"></circle>
+            <circle cx="30" cy="30" r="25" class="scroll-progress-bar" id="progress-circle"></circle>
+        </svg>
+        <button class="scroll-progress-btn" @onclick="HandleScrollClick" title="Scroll navigation">
+            <i class="fas fa-chevron-up"></i>
+        </button>
+    </div>
+</div>
+
+@code {
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JSRuntime.InvokeVoidAsync("initScrollProgress");
+        }
+    }
+
+    private async Task HandleScrollClick()
+    {
+        await JSRuntime.InvokeVoidAsync("scrollToTop");
+    }
+}

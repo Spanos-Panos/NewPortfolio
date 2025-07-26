@@ -1,7 +1,7 @@
 /* Contact Section - .NET Themed */
 .contact-section {
     padding: 6rem 0;
-    color: white;
+    color: var(--global-text-primary);
     position: relative;
 }
 
@@ -142,7 +142,7 @@
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 12px;
-    color: white;
+    color: var(--global-text-primary);
     font-size: 1rem;
     transition: all 0.3s ease;
     backdrop-filter: blur(10px);
@@ -175,7 +175,7 @@
     background: linear-gradient(135deg, var(--global-primary), var(--global-secondary));
     border: 1px solid rgba(102, 126, 234, 0.5);
     border-radius: 12px;
-    color: white;
+    color: var(--global-text-primary);
     font-weight: 600;
     font-size: 1rem;
     cursor: pointer;

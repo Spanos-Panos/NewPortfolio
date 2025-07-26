@@ -1,6 +1,6 @@
-/* Global/Public CSS - Site-wide styles that can be easily modified */
+/* Global/Public CSS - Site-wide styles with Light/Dark Theme Support */
 
-/* CSS Custom Properties for Global Theming */
+/* Dark Theme (Default) */
 :root {
     /* .NET Inspired Background Colors */
     --global-bg-primary: #0a0a0a;
@@ -31,6 +31,19 @@
     --global-glass-border: rgba(255, 255, 255, 0.1);
     --global-glass-blur: blur(20px);
     
+    /* Dark theme specific - Purple Scroll Effect */
+    --theme-gradient-start: #0a0a0a;
+    --theme-gradient-mid: #1a0f2e;
+    --theme-gradient-accent: #3d2060;
+    
+    /* Dark theme specific */
+    --theme-gradient-start: #0a0a0a;
+    --theme-gradient-mid: #1a0f2e;
+    --theme-gradient-accent: #3d2060;
+    --theme-card-bg: rgba(255, 255, 255, 0.08);
+    --theme-card-border: rgba(255, 255, 255, 0.12);
+    --theme-navbar-bg: rgba(26, 26, 26, 0.95);
+    
     /* Global Spacing */
     --global-padding-sm: 0.5rem;
     --global-padding-md: 1rem;
@@ -55,22 +68,68 @@
     --global-transition-slow: 0.5s ease;
 }
 
-/* Global Body Styles */
+/* Light Theme */
+[data-theme="light"] {
+    /* Light Inspired Background Colors */
+    --global-bg-primary: #ffffff;
+    --global-bg-secondary: rgba(248, 250, 252, 0.95);
+    --global-bg-tertiary: rgba(241, 245, 249, 0.9);
+    
+    /* Light Theme Text Colors - HIGH CONTRAST */
+    --global-text-primary: #1e293b;
+    --global-text-secondary: #334155;
+    --global-text-tertiary: #475569;
+    --global-text-muted: #64748b;
+    
+    /* Light Theme Brand Colors - High contrast purples */
+    --global-primary: #5b21b6;
+    --global-secondary: #7c3aed;
+    --global-accent: #a855f7;
+    --global-success: #16a34a;
+    --global-warning: #ca8a04;
+    --global-error: #dc2626;
+    
+    /* Microsoft-inspired accent colors for light */
+    --global-azure: #0066cc;
+    --global-teams: #464775;
+    --global-dotnet: #3730a3;
+    
+    /* Light Glass effects - more visible */
+    --global-glass-bg: rgba(255, 255, 255, 0.9);
+    --global-glass-border: rgba(91, 33, 182, 0.2);
+    --global-glass-blur: blur(20px);
+    
+    /* Light theme specific - Blue Scroll Effect */
+    --theme-gradient-start: #ffffff;
+    --theme-gradient-mid: #dbeafe;
+    --theme-gradient-accent: #93c5fd;
+    --theme-card-bg: rgba(255, 255, 255, 0.95);
+    --theme-card-border: rgba(91, 33, 182, 0.2);
+    --theme-navbar-bg: rgba(255, 255, 255, 0.95);
+    
+    /* Light theme shadows - more visible */
+    --global-shadow-sm: 0 2px 8px rgba(30, 41, 59, 0.1);
+    --global-shadow-md: 0 8px 32px rgba(30, 41, 59, 0.15);
+    --global-shadow-lg: 0 16px 64px rgba(30, 41, 59, 0.2);
+    --global-shadow-xl: 0 24px 96px rgba(30, 41, 59, 0.25);
+}
+
+/* Global Body Styles with Theme Support */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-    background: #0a0a0a;
+    background: var(--global-bg-primary);
     color: var(--global-text-primary);
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-    transition: var(--global-transition-normal);
+    transition: all 0.3s ease;
     position: relative;
     /* CSS custom property for smooth scroll progress */
     --scroll-progress: 0;
 }
 
-/* Dynamic .NET Purple Gradient Background - Progressive Vertical Center Line */
+/* Theme-aware Dynamic Gradient Background */
 body::before {
     content: '';
     position: fixed;
@@ -80,18 +139,14 @@ body::before {
     bottom: 0;
     background: linear-gradient(
         to right,
-        #0a0a0a 0%,
-        #1a0a1a calc(20% - var(--scroll-progress) * 10%),
-        #1a0f2e calc(40% - var(--scroll-progress) * 15%),
-        #2a1540 calc(47% - var(--scroll-progress) * 12%),
-        #3d2060 50%,
-        #2a1540 calc(53% + var(--scroll-progress) * 12%),
-        #1a0f2e calc(60% + var(--scroll-progress) * 15%),
-        #1a0a1a calc(80% + var(--scroll-progress) * 10%),
-        #0a0a0a 100%
+        var(--theme-gradient-start) 0%,
+        var(--theme-gradient-mid) calc(40% - var(--scroll-progress) * 15%),
+        var(--theme-gradient-accent) 50%,
+        var(--theme-gradient-mid) calc(60% + var(--scroll-progress) * 15%),
+        var(--theme-gradient-start) 100%
     );
     z-index: -2;
-    transition: background 0.1s ease;
+    transition: all 0.3s ease;
 }
 
 /* Enhanced scroll-triggered glassmorphism particles */
@@ -113,6 +168,14 @@ body::after {
     transform: scale(0.5);
 }
 
+/* Light theme glassmorphism particles - Blue tones */
+[data-theme="light"] body::after {
+    background: 
+        radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 30% 30%, rgba(96, 165, 250, 0.06) 0%, transparent 35%),
+        radial-gradient(circle at 70% 70%, rgba(147, 197, 253, 0.04) 0%, transparent 30%);
+}
+
 /* Enhanced glassmorphism scroll effect */
 body.scrolled::after {
     opacity: 1;
@@ -129,6 +192,22 @@ body.scrolled::after {
     50% { 
         transform: scale(1.02) rotate(0.5deg);
         opacity: 0.6;
+    }
+}
+
+/* Light theme glassmorphism animation - Blue variant */
+[data-theme="light"] body.scrolled::after {
+    animation: scrollGlassEffectLight 6s ease-in-out infinite;
+}
+
+@keyframes scrollGlassEffectLight {
+    0%, 100% { 
+        transform: scale(1) rotate(0deg);
+        opacity: 0.4;
+    }
+    50% { 
+        transform: scale(1.03) rotate(-0.5deg);
+        opacity: 0.7;
     }
 }
 

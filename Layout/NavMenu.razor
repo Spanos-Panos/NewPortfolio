@@ -1,3 +1,4 @@
+@using Microsoft.JSInterop
 @* Modern Navigation Menu with Enhanced Features *@
 
 <nav class="navbar">
@@ -25,7 +26,16 @@
                 <span class="nav-text">Home</span>
             </a>
             <a href="#about" class="navbar-link @(activeSection == "about" ? "active" : "")" @onclick="@(() => NavigateToSection("about"))">>
-                <span class="nav-icon icon">👨‍💻</span>
+                <span class="nav-icon icon">
+                    <div class="eyes-container">
+                        <div class="eye">
+                            <div class="pupil"></div>
+                        </div>
+                        <div class="eye">
+                            <div class="pupil"></div>
+                        </div>
+                    </div>
+                </span>
                 <span class="nav-text">About</span>
             </a>
             <a href="#projects" class="navbar-link @(activeSection == "projects" ? "active" : "")" @onclick="@(() => NavigateToSection("projects"))">>
@@ -74,6 +84,13 @@
             // Add smooth scrolling behavior and section detection
             await JSRuntime.InvokeVoidAsync("addSmoothScrolling");
             await JSRuntime.InvokeVoidAsync("initNavbarTracking");
+            
+            // EMERGENCY INITIALIZATION - Call our emergency system
+            await JSRuntime.InvokeVoidAsync("eval", "if(typeof emergencyInit === 'function') { emergencyInit(); console.log('✅ Emergency init called from Blazor'); } else { console.log('❌ emergencyInit not found'); }");
+            
+            // Force trigger after delay
+            await Task.Delay(1000);
+            await JSRuntime.InvokeVoidAsync("eval", "emergencyInit();");
         }
     }
 

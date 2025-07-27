@@ -1,3 +1,4 @@
+@using Portfolio.Shared
 @* Footer Component - Compact .NET Themed *@
 
 <footer id="footer" class="footer-section">
@@ -41,8 +42,11 @@
         <!-- Bottom Section -->
         <div class="footer-bottom">
             <div class="footer-copyright">
-                <p>&copy; @DateTime.Now.Year Panos Spanos. Built with Blazor & .NET 9</p>
+                <p>&copy; @DateTime.Now.Year Panos Spanos. Built with Blazor & .NET 9
+                    <span id="secret-trigger" style="cursor: pointer; font-size: 20px; margin-left: 8px;" title="Unlock Secret">🔑</span>
+                </p>
             </div>
+            
             <div class="footer-back-to-top">
                 <a href="#hero" class="back-to-top-btn" title="Back to Top">
                     <span class="back-to-top-icon icon icon-bounce">↑</span>

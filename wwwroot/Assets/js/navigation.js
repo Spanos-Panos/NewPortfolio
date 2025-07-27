@@ -43,3 +43,28 @@ window.addSmoothScrolling = () => {
         }
     });
 };
+
+// Initialize eye tracking and key systems
+window.initNavbarTracking = () => {
+    console.log('🚀 Initializing navbar tracking and interactive systems...');
+    
+    // Initialize our eye tracking system
+    setTimeout(() => {
+        if (typeof window.initSkyDropSystem === 'function') {
+            window.initSkyDropSystem();
+        } else {
+            console.log('⚠️ Sky drop system not loaded yet, retrying...');
+            // Retry every second for up to 10 seconds
+            let retryCount = 0;
+            const retryInterval = setInterval(() => {
+                if (typeof window.initSkyDropSystem === 'function') {
+                    window.initSkyDropSystem();
+                    clearInterval(retryInterval);
+                } else if (retryCount++ > 10) {
+                    console.log('❌ Failed to load sky drop system after 10 retries');
+                    clearInterval(retryInterval);
+                }
+            }, 1000);
+        }
+    }, 500);
+};

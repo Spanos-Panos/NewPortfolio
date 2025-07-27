@@ -8,7 +8,7 @@
         <!-- Header -->
         <div class="projects-header">
             <h2 class="projects-title">
-                <span class="title-gradient">Featured Projects</span>
+                <span class="title-gradient">Featured Projects</span> <span id="secret-target" title="🔑 Drag the golden key here to unlock something special..." style="cursor: help;" onmouseover="window.status='🔑 Looking for the key? Check the footer...'" onmouseout="window.status=''">🔒</span>
             </h2>
             <p class="projects-subtitle">
                 .NET applications built with modern technologies, organized by complexity
@@ -78,8 +78,10 @@
 
                 <!-- Password Manager -->
                 <div class="project-card easy-card">
-                    <div class="card-header">
-                        <div class="project-icon">🔐</div>
+                    <div class="card-header relative">
+                        <div class="project-icon">
+                            <span class="inline-block text-3xl transition-transform duration-200" style="width: 2.2em;">🔐</span>
+                        </div>
                         <div class="difficulty-indicator easy-indicator">Easy</div>
                     </div>
                     <div class="project-content">
@@ -100,6 +102,42 @@
                         </div>
                     </div>
                 </div>
+
+                @if (secretUnlocked)
+                {
+                    <div class="project-card secret-card animate-bounce-in">
+                        <div class="card-header">
+                            <div class="project-icon">🗝️</div>
+                            <div class="difficulty-indicator secret-indicator">Secret</div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Secret Project Unlocked!</h3>
+                            <p class="project-description">You found the hidden project. Congrats! 🎉</p>
+                        </div>
+                    </div>
+                }
+
+@using Portfolio.Shared
+@inject Portfolio.Shared.SecretUnlockService SecretUnlockService
+@code {
+    private bool secretUnlocked = false;
+
+    protected override void OnInitialized()
+    {
+        SecretUnlockService.OnUnlock += HandleUnlock;
+    }
+
+    private void HandleUnlock()
+    {
+        secretUnlocked = true;
+        StateHasChanged();
+    }
+
+    public void Dispose()
+    {
+        SecretUnlockService.OnUnlock -= HandleUnlock;
+    }
+}
             </div>
         </div>
 
@@ -120,6 +158,9 @@
                     <div class="card-header">
                         <div class="project-icon">⚡</div>
                         <div class="difficulty-indicator medium-indicator">Medium</div>
+                        <!-- Hidden lock target for secret game -->
+                        <div class="lock-target" id="lock-target" style="position: absolute; top: 0.5rem; right: 0.5rem; opacity: 0; pointer-events: auto;">
+                        </div>
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">WebAPI Code Generator</h3>

@@ -1,4 +1,4 @@
-/* Theme Transition Animations and Additional Styles */
+/* Theme Transition Animations and Comprehensive Text Color Fixes */
 
 /* Smooth theme transitions for all elements */
 *,
@@ -9,6 +9,88 @@
                 border-color 0.3s ease,
                 box-shadow 0.3s ease,
                 backdrop-filter 0.3s ease !important;
+}
+
+/* === COMPREHENSIVE TEXT COLOR SYSTEM === */
+
+/* LIGHT MODE - ALL TEXT BLACK (except specific exceptions) */
+[data-theme="light"] * {
+    color: #000000 !important;
+}
+
+/* DARK MODE - ALL TEXT WHITE */
+[data-theme="dark"] * {
+    color: #ffffff !important;
+}
+
+/* === SPECIFIC COMPONENT FIXES === */
+
+/* Preserve gradient text colors for titles */
+[data-theme="light"] .title-gradient,
+[data-theme="light"] .hero-title .title-gradient,
+[data-theme="light"] .projects-title .title-gradient,
+[data-theme="light"] .skills-title .title-gradient,
+[data-theme="light"] .footer-brand {
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
+[data-theme="dark"] .title-gradient,
+[data-theme="dark"] .hero-title .title-gradient,
+[data-theme="dark"] .projects-title .title-gradient,
+[data-theme="dark"] .skills-title .title-gradient,
+[data-theme="dark"] .footer-brand {
+    background: linear-gradient(135deg, var(--global-primary), var(--global-secondary)) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
+/* Button text fixes */
+[data-theme="light"] .btn:hover {
+    color: #ffffff !important;
+}
+
+/* Badge text - keep white for colored badges */
+[data-theme="light"] .badge-text,
+[data-theme="light"] .difficulty-indicator,
+[data-theme="dark"] .badge-text,
+[data-theme="dark"] .difficulty-indicator {
+    color: #ffffff !important;
+}
+
+/* Navigation hover fixes */
+[data-theme="light"] .nav-link:hover {
+    color: #3b82f6 !important;
+}
+
+[data-theme="dark"] .nav-link:hover {
+    color: var(--global-primary) !important;
+}
+
+/* Theme toggle fixes */
+[data-theme="light"] .theme-toggle-btn {
+    background: rgba(255, 255, 255, 0.9) !important;
+    border-color: rgba(0, 0, 0, 0.2) !important;
+    color: #000000 !important;
+}
+
+[data-theme="light"] .theme-toggle-btn:hover {
+    background: rgba(255, 255, 255, 1) !important;
+    color: #3b82f6 !important;
+}
+
+/* Form placeholder fixes */
+[data-theme="light"] input::placeholder,
+[data-theme="light"] textarea::placeholder {
+    color: rgba(0, 0, 0, 0.6) !important;
+}
+
+[data-theme="dark"] input::placeholder,
+[data-theme="dark"] textarea::placeholder {
+    color: rgba(255, 255, 255, 0.6) !important;
 }
 
 /* Light theme specific overrides */

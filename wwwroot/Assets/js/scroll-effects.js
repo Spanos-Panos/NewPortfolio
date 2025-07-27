@@ -1,6 +1,7 @@
 // Smooth Scroll Effects for Progressive Gradient Animation
 document.addEventListener('DOMContentLoaded', function() {
     let lastScrollY = 0;
+    let isScrolling = false;
     
     function handleScroll() {
         const currentScrollY = window.scrollY;
@@ -22,19 +23,28 @@ document.addEventListener('DOMContentLoaded', function() {
             body.classList.remove('scrolled');
         }
         
-        // Add glassmorphism effects to sections in viewport
-        sections.forEach(section => {
-            const rect = section.getBoundingClientRect();
-            const isInViewport = rect.top < window.innerHeight && rect.bottom > 0;
+        // Add glassmorphism effects to sections in viewport with performance optimization
+        if (!isScrolling) {
+            isScrolling = true;
             
-            if (isInViewport && currentScrollY > lastScrollY) {
-                // Scrolling down - add glass effect
-                section.classList.add('glass-visible');
-            } else if (!isInViewport || currentScrollY < lastScrollY) {
-                // Scrolling up or out of view - remove glass effect
-                section.classList.remove('glass-visible');
-            }
-        });
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                const isInViewport = rect.top < window.innerHeight && rect.bottom > 0;
+                
+                if (isInViewport && currentScrollY > lastScrollY) {
+                    // Scrolling down - add glass effect
+                    section.classList.add('glass-visible');
+                } else if (!isInViewport || currentScrollY < lastScrollY) {
+                    // Scrolling up or out of view - remove glass effect
+                    section.classList.remove('glass-visible');
+                }
+            });
+            
+            // Reset scrolling flag after a short delay
+            setTimeout(() => {
+                isScrolling = false;
+            }, 16); // ~60fps
+        }
         
         lastScrollY = currentScrollY;
     }

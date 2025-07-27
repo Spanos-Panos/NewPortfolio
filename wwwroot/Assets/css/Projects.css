@@ -206,16 +206,16 @@
 }
 
 .medium-card:hover .card-glow {
-    opacity: 0.6;
+    opacity: 0.3; /* Reduced glow effect */
 }
 
 .medium-card:hover {
-    transform: translateY(-12px) scale(1.02);
-    border-color: rgba(251, 146, 60, 0.5);
+    transform: translateY(-8px) scale(1.01); /* Reduced movement and scale */
+    border-color: rgba(251, 146, 60, 0.4);
     box-shadow: 
-        0 25px 70px rgba(0, 0, 0, 0.5),
-        0 0 50px rgba(251, 146, 60, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        0 15px 40px rgba(0, 0, 0, 0.3),
+        0 0 25px rgba(251, 146, 60, 0.2);
+    /* Removed background and inset changes */
 }
 
 /* Card Header */
@@ -332,7 +332,7 @@
     color: rgba(255, 255, 255, 0.9);
     font-size: 0.8rem;
     font-weight: 500;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .tech-tag:hover {
@@ -369,7 +369,7 @@
     font-weight: 600;
     font-size: 0.9rem;
     text-align: center;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     backdrop-filter: blur(10px);
     white-space: nowrap; /* Prevent text wrapping */
 }
@@ -407,9 +407,75 @@
 }
 
 /* Icon animations */
+/* Project Card Animation Icons */
 .icon {
     font-size: 1rem;
-    transition: transform 0.3s ease;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* === SECRET LOCK TARGET IN PROJECTS === */
+.lock-target {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    width: 30px;
+    height: 30px;
+    border: 2px dashed transparent;
+    border-radius: 8px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+    pointer-events: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lock-target.drag-over {
+    border-color: rgba(34, 197, 94, 0.8);
+    background: rgba(34, 197, 94, 0.2);
+    box-shadow: 0 0 20px rgba(34, 197, 94, 0.4);
+    transform: scale(1.2);
+    opacity: 1;
+}
+
+.lock-emoji {
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    opacity: 0;
+}
+
+.secret-hint {
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.4);
+    font-weight: bold;
+    background: rgba(102, 126, 234, 0.1);
+    border-radius: 50%;
+    width: 14px;
+    height: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(102, 126, 234, 0.2);
+    opacity: 0;
+}
+
+.lock-target:hover {
+    opacity: 0.3;
+    background: rgba(255, 255, 255, 0.02);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.lock-target:hover .lock-emoji {
+    opacity: 0.5;
+    filter: drop-shadow(0 0 6px rgba(102, 126, 234, 0.4));
+    transform: scale(1.1);
+}
+
+.lock-target:hover .secret-hint {
+    opacity: 0.5;
+    background: rgba(102, 126, 234, 0.2);
+    color: rgba(255, 255, 255, 0.8);
+    transform: scale(1.1);
 }
 
 .icon-bounce {

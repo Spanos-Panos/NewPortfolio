@@ -1,0 +1,38 @@
+# Build results
+bin/
+obj/
+out/
+
+# Node modules and npm
+node_modules/
+npm-debug.log*
+package-lock.json
+
+# Blazor specific
+wwwroot/lib/
+wwwroot/sample-data/
+
+# Generated CSS (will be regenerated)
+wwwroot/tailwind.css
+
+# Visual Studio / VS Code
+.vs/
+.vscode/settings.json
+.vscode/launch.json
+.vscode/tasks.json
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db

@@ -1,0 +1,257 @@
+@namespace Portfolio.Shared
+@using System.ComponentModel.DataAnnotations
+@using Microsoft.JSInterop
+@inject IJSRuntime JSRuntime
+
+<section class="contact-section" id="contact">
+    <div class="contact-container">
+        <div class="contact-header">
+            <h2 class="contact-title">
+                <span class="title-gradient">Get In Touch</span>
+            </h2>
+            <p class="contact-subtitle">Ready to collaborate on your next .NET project? Let's build something amazing together!</p>
+        </div>
+        
+        <div class="contact-content">
+            <!-- Contact Form -->
+            <div class="contact-form-section">
+                <div class="form-card">
+                    <div class="form-header">
+                        <div class="form-icon icon icon-glow">📧</div>
+                        <h3 class="form-title">Send Message</h3>
+                    </div>
+                    
+                    <form class="contact-form" @onsubmit="HandleSubmit" @onsubmit:preventDefault="true">
+                        <div class="form-group">
+                            <label class="form-label" for="from_name">Your Name</label>
+                            <input type="text" id="from_name" name="from_name" class="form-input" @bind="contactModel.FromName" required>
+                            @if (!string.IsNullOrEmpty(validationErrors.FromName))
+                            {
+                                <div class="validation-message">@validationErrors.FromName</div>
+                            }
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="from_email">Your Email</label>
+                            <input type="email" id="from_email" name="from_email" class="form-input" @bind="contactModel.FromEmail" required>
+                            @if (!string.IsNullOrEmpty(validationErrors.FromEmail))
+                            {
+                                <div class="validation-message">@validationErrors.FromEmail</div>
+                            }
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="message">Message</label>
+                            <textarea id="message" name="message" class="form-textarea" @bind="contactModel.Message" rows="5" required></textarea>
+                            @if (!string.IsNullOrEmpty(validationErrors.Message))
+                            {
+                                <div class="validation-message">@validationErrors.Message</div>
+                            }
+                        </div>
+
+                        <button type="submit" class="submit-btn" disabled="@isSubmitting">
+                            @if (isSubmitting)
+                            {
+                                <span class="btn-spinner">⏳</span>
+                                <span>Sending...</span>
+                            }
+                            else
+                            {
+                                <span class="btn-icon">🚀</span>
+                                <span>Send Message</span>
+                            }
+                        </button>
+
+                        @if (!string.IsNullOrEmpty(submitMessage))
+                        {
+                            <div class="submit-feedback @submitMessageClass">
+                                @submitMessage
+                            </div>
+                        }
+                    </form>
+                </div>
+            </div>
+
+            <!-- Connect Section -->
+            <div class="connect-section">
+                <div class="connect-card">
+                    <div class="connect-header">
+                        <div class="connect-icon">🌐</div>
+                        <h3 class="connect-title">Let's Connect</h3>
+                        <p class="connect-description">Find me on these platforms for collaborations and tech discussions</p>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="mailto:panosqwe632@gmail.com" target="_blank" class="social-link email-link">
+                            <div class="social-icon icon icon-bounce">📧</div>
+                            <div class="social-info">
+                                <span class="social-label">Email</span>
+                                <span class="social-handle">panosqwe632@gmail.com</span>
+                            </div>
+                        </a>
+
+                        <a href="https://github.com/Spanos-Panos" target="_blank" class="social-link github-link">
+                            <div class="social-icon icon icon-bounce">⭐</div>
+                            <div class="social-info">
+                                <span class="social-label">GitHub</span>
+                                <span class="social-handle">@@Spanos-Panos</span>
+                            </div>
+                        </a>
+
+                        <a href="https://linkedin.com/in/panagiotis-spanos-0b10502b6" target="_blank" class="social-link linkedin-link">
+                            <div class="social-icon icon icon-bounce">💼</div>
+                            <div class="social-info">
+                                <span class="social-label">LinkedIn</span>
+                                <span class="social-handle">Panagiotis Spanos</span>
+                            </div>
+                        </a>
+
+                        <a href="tel:+306970502878" class="social-link phone-link">
+                            <div class="social-icon icon icon-bounce">📞</div>
+                            <div class="social-info">
+                                <span class="social-label">Phone</span>
+                                <span class="social-handle">+30 697 050 2878</span>
+                            </div>
+                        </a>
+                        <a href="https://www.instagram.com/panos___spanos/" target="_blank" class="social-link instagram-link">
+                            <div class="social-icon icon icon-bounce">📸</div>
+                            <div class="social-info">
+                                <span class="social-label">Instagram</span>
+                                <span class="social-handle">@@panos___spanos</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@code {
+    private ContactModel contactModel = new();
+    private ValidationErrors validationErrors = new();
+    private bool isSubmitting = false;
+    private string submitMessage = "";
+    private string submitMessageClass = "";
+
+    private async Task HandleSubmit()
+    {
+        // Clear previous validation errors
+        validationErrors = new ValidationErrors();
+        
+        // Validate form
+        if (!ValidateForm())
+        {
+            return;
+        }
+
+        isSubmitting = true;
+        submitMessage = "";
+        StateHasChanged();
+
+        try
+        {
+            // Send email using EmailJS
+            var emailData = new
+            {
+                name = contactModel.FromName,
+                email = contactModel.FromEmail,
+                message = contactModel.Message
+            };
+            
+            var resultJson = await JSRuntime.InvokeAsync<string>("sendContactEmail", emailData);
+            Console.WriteLine($"EmailJS response: {resultJson}");
+            
+            // Parse the JSON result
+            var result = System.Text.Json.JsonSerializer.Deserialize<EmailResult>(resultJson);
+            
+            if (result != null && result.Success)
+            {
+                submitMessage = "🎉 Message sent successfully! I'll get back to you soon.";
+                submitMessageClass = "success";
+                
+                // Clear form
+                contactModel = new ContactModel();
+            }
+            else
+            {
+                submitMessage = result != null ? $"❌ {result.Message}" : "❌ Failed to process email response.";
+                submitMessageClass = "error";
+            }
+        }
+        catch (Exception ex)
+        {
+            submitMessage = "❌ An error occurred. Please try again later.";
+            submitMessageClass = "error";
+            Console.WriteLine($"Email send error: {ex.Message}");
+        }
+        finally
+        {
+            isSubmitting = false;
+            StateHasChanged();
+        }
+    }
+
+    private bool ValidateForm()
+    {
+        bool isValid = true;
+
+        if (string.IsNullOrWhiteSpace(contactModel.FromName))
+        {
+            validationErrors.FromName = "Name is required";
+            isValid = false;
+        }
+
+        if (string.IsNullOrWhiteSpace(contactModel.FromEmail))
+        {
+            validationErrors.FromEmail = "Email is required";
+            isValid = false;
+        }
+        else if (!IsValidEmail(contactModel.FromEmail))
+        {
+            validationErrors.FromEmail = "Please enter a valid email address";
+            isValid = false;
+        }
+
+        if (string.IsNullOrWhiteSpace(contactModel.Message))
+        {
+            validationErrors.Message = "Message is required";
+            isValid = false;
+        }
+
+        return isValid;
+    }
+
+    private bool IsValidEmail(string email)
+    {
+        try
+        {
+            var addr = new System.Net.Mail.MailAddress(email);
+            return addr.Address == email;
+        }
+        catch
+        {
+            return false;
+        }
+    }
+
+    public class ContactModel
+    {
+        public string FromName { get; set; } = "";
+        public string FromEmail { get; set; } = "";
+        public string Message { get; set; } = "";
+    }
+
+    public class ValidationErrors
+    {
+        public string FromName { get; set; } = "";
+        public string FromEmail { get; set; } = "";
+        public string Message { get; set; } = "";
+    }
+
+    public class EmailResult
+    {
+        public bool Success { get; set; }
+        public string Message { get; set; } = "";
+    }
+}

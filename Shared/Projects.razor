@@ -1,0 +1,203 @@
+@* Projects Section Component - .NET Theme                            <a href="https://github.com/Spanos-Panos/UrlShortener" target="_blank" class="btn btn-secondary">
+                                <span class="icon icon-bounce">📂</span>
+                                View On GitHub
+                            </a>th Difficulty Levels *@
+
+<section id="projects" class="projects-section">
+    <div class="projects-container">
+        <!-- Header -->
+        <div class="projects-header">
+            <h2 class="projects-title">
+                <span class="title-gradient">Featured Projects</span> <span id="secret-target" title="🔑 Drag the golden key here to unlock something special..." style="cursor: help;" onmouseover="window.status='🔑 Looking for the key? Check the footer...'" onmouseout="window.status=''">🔒</span>
+            </h2>
+            <p class="projects-subtitle">
+                .NET applications built with modern technologies, organized by complexity
+            </p>
+        </div>
+
+        <!-- Easy Projects Section -->
+        <div class="difficulty-section">
+            <div class="difficulty-header">
+                <div class="difficulty-badge easy-badge">
+                    <span class="badge-icon">🌟</span>
+                    <span class="badge-text">Easy Projects</span>
+                </div>
+                <p class="difficulty-description">Foundation projects demonstrating core .NET concepts</p>
+            </div>
+            
+            <div class="projects-grid easy-grid">
+                <!-- URL Shortener -->
+                <div class="project-card easy-card">
+                    <div class="card-header">
+                        <div class="project-icon">🔗</div>
+                        <div class="difficulty-indicator easy-indicator">Easy</div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Smart URL Shortener</h3>
+                        <p class="project-description">
+                            Powerful URL shortening service with custom aliases, analytics, and QR code generation.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">ASP.NET Core</span>
+                            <span class="tech-tag">Entity Framework</span>
+                            <span class="tech-tag">Blazor</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://github.com/Spanos-Panos/url-shortener" target="_blank" class="btn btn-secondary">
+                                <span class="icon icon-bounce">📂</span>
+                                View On GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Finance Tracker -->
+                <div class="project-card easy-card">
+                    <div class="card-header">
+                        <div class="project-icon">💰</div>
+                        <div class="difficulty-indicator easy-indicator">Easy</div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Personal Finance Tracker</h3>
+                        <p class="project-description">
+                            Personal finance management with expense tracking, budgets, and analytics.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">ASP.NET Core</span>
+                            <span class="tech-tag">SignalR</span>
+                            <span class="tech-tag">Chart.js</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://github.com/Spanos-Panos/finance-tracker" target="_blank" class="btn btn-secondary">
+                                <span class="icon icon-bounce">📂</span>
+                                View On GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Password Manager -->
+                <div class="project-card easy-card">
+                    <div class="card-header relative">
+                        <div class="project-icon">
+                            <span class="inline-block text-3xl transition-transform duration-200" style="width: 2.2em;">🔐</span>
+                        </div>
+                        <div class="difficulty-indicator easy-indicator">Easy</div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Secure Password Manager</h3>
+                        <p class="project-description">
+                            Enterprise password manager with encryption, secure sharing, and MFA.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">ASP.NET Core</span>
+                            <span class="tech-tag">Identity</span>
+                            <span class="tech-tag">Azure Key Vault</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://github.com/Spanos-Panos/password-manager-cli" target="_blank" class="btn btn-secondary">
+                                <span class="icon icon-bounce">📂</span>
+                                View On GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                @if (secretUnlocked)
+                {
+                    <div class="project-card secret-card animate-bounce-in">
+                        <div class="card-header">
+                            <div class="project-icon">🗝️</div>
+                            <div class="difficulty-indicator secret-indicator">Secret</div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Secret Project Unlocked!</h3>
+                            <p class="project-description">You found the hidden project. Congrats! 🎉</p>
+                        </div>
+                    </div>
+                }
+
+@using Portfolio.Shared
+@inject Portfolio.Shared.SecretUnlockService SecretUnlockService
+@code {
+    private bool secretUnlocked = false;
+
+    protected override void OnInitialized()
+    {
+        SecretUnlockService.OnUnlock += HandleUnlock;
+    }
+
+    private void HandleUnlock()
+    {
+        secretUnlocked = true;
+        StateHasChanged();
+    }
+
+    public void Dispose()
+    {
+        SecretUnlockService.OnUnlock -= HandleUnlock;
+    }
+}
+            </div>
+        </div>
+
+        <!-- Medium Projects Section -->
+        <div class="difficulty-section">
+            <div class="difficulty-header">
+                <div class="difficulty-badge medium-badge">
+                    <span class="badge-icon">🚀</span>
+                    <span class="badge-text">Medium Projects</span>
+                </div>
+                <p class="difficulty-description">Advanced projects showcasing complex .NET architecture</p>
+            </div>
+            
+            <div class="projects-grid medium-grid">
+                <!-- WebAPI Creator -->
+                <div class="project-card medium-card featured-card">
+                    <div class="card-glow"></div>
+                    <div class="card-header">
+                        <div class="project-icon">⚡</div>
+                        <div class="difficulty-indicator medium-indicator">Medium</div>
+                        <!-- Hidden lock target for secret game -->
+                        <div class="lock-target" id="lock-target" style="position: absolute; top: 0.5rem; right: 0.5rem; opacity: 0; pointer-events: auto;">
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">WebAPI Code Generator</h3>
+                        <p class="project-description">
+                            Automated Web API generator that creates production-ready REST APIs from database schemas, 
+                            complete with documentation, authentication, and testing endpoints. Features advanced 
+                            code generation algorithms and enterprise-grade architecture patterns.
+                        </p>
+                        <div class="project-features">
+                            <div class="feature-item">
+                                <span class="feature-icon">🔧</span>
+                                <span>Auto Code Generation</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">📚</span>
+                                <span>OpenAPI Documentation</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">🔐</span>
+                                <span>Built-in Authentication</span>
+                            </div>
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">ASP.NET Core</span>
+                            <span class="tech-tag">OpenAPI</span>
+                            <span class="tech-tag">Entity Framework</span>
+                            <span class="tech-tag">Roslyn</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="https://github.com/Spanos-Panos/WebApiSampleCreator" target="_blank" class="btn btn-primary">
+                                <span class="icon icon-bounce">📂</span>
+                                View On GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

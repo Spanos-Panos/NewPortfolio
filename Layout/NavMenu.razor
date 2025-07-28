@@ -1,0 +1,101 @@
+@namespace Portfolio.Layout
+@using Microsoft.JSInterop
+@* Modern Navigation Menu with Enhanced Features *@
+
+<nav class="navbar">
+    <div class="navbar-container">
+        <!-- Logo/Brand -->
+        <div class="navbar-brand">
+            <a href="#hero" class="brand-link">
+                <span class="brand-icon icon icon-glow">💻</span>
+                <span class="brand-text">Portfolio</span>
+                <span class="brand-accent">.NET</span>
+            </a>
+        </div>
+
+        <!-- Mobile Menu Toggle -->
+        <div class="navbar-toggle @(isMenuOpen ? "active" : "")" @onclick="ToggleMenu">
+            <span class="navbar-toggle-bar"></span>
+            <span class="navbar-toggle-bar"></span>
+            <span class="navbar-toggle-bar"></span>
+        </div>
+
+        <!-- Navigation Links -->
+        <div class="navbar-menu @(isMenuOpen ? "active" : "")">
+            <a href="#hero" class="navbar-link @(activeSection == "hero" ? "active" : "")" @onclick="@(() => NavigateToSection("hero"))">>
+                <span class="nav-icon icon">🏠</span>
+                <span class="nav-text">Home</span>
+            </a>
+            <a href="#about" class="navbar-link @(activeSection == "about" ? "active" : "")" @onclick="@(() => NavigateToSection("about"))">>
+                <span class="nav-icon icon">
+                    <div class="eyes-container">
+                        <div class="eye">
+                            <div class="pupil"></div>
+                        </div>
+                        <div class="eye">
+                            <div class="pupil"></div>
+                        </div>
+                    </div>
+                </span>
+                <span class="nav-text">About</span>
+            </a>
+            <a href="#projects" class="navbar-link @(activeSection == "projects" ? "active" : "")" @onclick="@(() => NavigateToSection("projects"))">>
+                <span class="nav-icon icon">🚀</span>
+                <span class="nav-text">Projects</span>
+            </a>
+            <a href="#skills" class="navbar-link @(activeSection == "skills" ? "active" : "")" @onclick="@(() => NavigateToSection("skills"))">>
+                <span class="nav-icon icon">⚡</span>
+                <span class="nav-text">Skills</span>
+            </a>
+            <a href="#contact" class="navbar-link @(activeSection == "contact" ? "active" : "")" @onclick="@(() => NavigateToSection("contact"))">>
+                <span class="nav-icon icon">📧</span>
+                <span class="nav-text">Contact</span>
+            </a>
+            
+            <!-- Theme Toggle Button -->
+            <button class="theme-toggle-btn" aria-label="Toggle theme" data-theme="dark">
+                <div class="theme-toggle-inner">
+                    <span class="theme-icon theme-icon-sun">☀️</span>
+                    <span class="theme-icon theme-icon-moon">🌙</span>
+                </div>
+            </button>
+        </div>
+    </div>
+</nav>
+
+@code {
+    private bool isMenuOpen = false;
+    private string activeSection = "hero";
+
+    private void ToggleMenu()
+    {
+        isMenuOpen = !isMenuOpen;
+    }
+
+    private void NavigateToSection(string section)
+    {
+        activeSection = section;
+        isMenuOpen = false;
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            // Add smooth scrolling behavior and section detection
+            await JSRuntime.InvokeVoidAsync("addSmoothScrolling");
+            await JSRuntime.InvokeVoidAsync("initNavbarTracking");
+            
+            // EMERGENCY INITIALIZATION - Call our emergency system
+            await JSRuntime.InvokeVoidAsync("eval", "if(typeof emergencyInit === 'function') { emergencyInit(); console.log('✅ Emergency init called from Blazor'); } else { console.log('❌ emergencyInit not found'); }");
+            
+            // Force trigger after delay
+            await Task.Delay(1000);
+            await JSRuntime.InvokeVoidAsync("eval", "emergencyInit();");
+        }
+    }
+
+    [Inject]
+    private IJSRuntime JSRuntime { get; set; } = default!;
+}
+

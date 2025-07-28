@@ -74,10 +74,17 @@ function handleKeyClick(e) {
     if (droppedKey) {
         droppedKey.remove();
     }
+<<<<<<< HEAD
     // Create new key
     droppedKey = document.createElement('div');
     droppedKey.className = 'dropped-key';
     droppedKey.innerHTML = '🔑<div class="gloss"></div>';
+=======
+    
+    // Create new key
+    droppedKey = document.createElement('div');
+    droppedKey.innerHTML = '🔑';
+>>>>>>> ca51de71d698d204d22ded291e0b59d5f5d0ab89
     droppedKey.style.cssText = `
         position: fixed;
         top: -100px;
@@ -86,9 +93,14 @@ function handleKeyClick(e) {
         cursor: grab;
         z-index: 10000;
         user-select: none;
+<<<<<<< HEAD
         transition: all 0.5s ease, box-shadow 0.2s, filter 0.2s;
         filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.8));
         background: none;
+=======
+        transition: all 0.5s ease;
+        filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.8));
+>>>>>>> ca51de71d698d204d22ded291e0b59d5f5d0ab89
     `;
     
     document.body.appendChild(droppedKey);
@@ -143,6 +155,10 @@ function setupDragging() {
         
         if (droppedKey) {
             droppedKey.style.cursor = 'grab';
+<<<<<<< HEAD
+=======
+            
+>>>>>>> ca51de71d698d204d22ded291e0b59d5f5d0ab89
             // Check if overlapping the locker
             const locker = document.getElementById('secret-target');
             if (locker) {
@@ -154,6 +170,7 @@ function setupDragging() {
                     keyRect.bottom > lockerRect.top &&
                     keyRect.top < lockerRect.bottom
                 ) {
+<<<<<<< HEAD
                     // --- UNLOCK: Fade out key, trigger Blazor event ---
                     droppedKey.style.transition = 'opacity 0.5s';
                     droppedKey.style.opacity = '0';
@@ -164,6 +181,27 @@ function setupDragging() {
                 }
             }
             // No fallback: key does nothing unless on locker
+=======
+                    console.log('🔓 KEY OVERLAPS LOCKER!');
+                    droppedKey.style.animation = 'pulse 1s infinite';
+                    droppedKey.style.filter = 'drop-shadow(0 0 20px gold)';
+                    setTimeout(() => {
+                        alert('🎉 Congratulations! Secret unlocked!');
+                    }, 500);
+                    return;
+                }
+            }
+            // Fallback: check if near bottom for success
+            const rect = droppedKey.getBoundingClientRect();
+            if (rect.top > window.innerHeight - 150) {
+                console.log('🎉 SUCCESS!');
+                droppedKey.style.animation = 'pulse 1s infinite';
+                droppedKey.style.filter = 'drop-shadow(0 0 20px gold)';
+                setTimeout(() => {
+                    alert('🎉 Congratulations! Secret unlocked!');
+                }, 500);
+            }
+>>>>>>> ca51de71d698d204d22ded291e0b59d5f5d0ab89
         }
     });
 }
@@ -222,6 +260,7 @@ const emergencyInterval = setInterval(() => {
     }
 }, 1000);
 
+<<<<<<< HEAD
 // --- GLOSS EFFECT CSS ---
 function injectGlossCSS() {
     if (document.getElementById('key-gloss-style')) return;
@@ -411,6 +450,8 @@ function loadGameScript(src) {
     document.body.appendChild(script);
 }
 
+=======
+>>>>>>> ca51de71d698d204d22ded291e0b59d5f5d0ab89
 // Global test functions
 window.testKey = () => {
     console.log('🧪 Testing key trigger...');

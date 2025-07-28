@@ -1,0 +1,221 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\user\\Desktop\\Portfolio\\bin\\Debug\\net9.0\\wwwroot\\_framework\\blazor.webassembly.js",
+      "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\Portfolio\\wwwroot\\Assets\\css\\AboutMe.css",
+      "PackagePath": "staticwebassets\\Assets\\css\\AboutMe.css"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\Portfolio\\wwwroot\\Assets\\css\\Contact.css",
+      "PackagePath": "staticwebassets\\Assets\\css\\Contact.css"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\Portfolio\\wwwroot\\Assets\\css\\EmojiAnimations.css",
+      "PackagePath": "staticwebassets\\Assets\\css\\EmojiAnimations.css"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\Portfolio\\wwwroot\\Assets\\css\\Footer.css",
+      "PackagePath": "staticwebassets\\Assets\\css\\Footer.css"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\Portfolio\\wwwroot\\Assets\\css\\Hero.css",
+      "PackagePath": "staticwebassets\\Assets\\css\\Hero.css"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\Portfolio\\wwwroot\\Assets\\css\\MiniAnimations.css",
+      "PackagePath": "staticwebassets\\Assets\\css\\MiniAnimations.css"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\Portfolio\\wwwroot\\Assets\\css\\NavMenu.css",
+      "PackagePath": "staticwebassets\\Assets\\css\\NavMenu.css"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\Portfolio\\wwwroot\\Assets\\css\\Projects.css",
+      "PackagePath": "staticwebassets\\Assets\\css\\Projects.css"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\Portfolio\\wwwroot\\Assets\\css\\ScrollProgress.css",
+      "PackagePath": "staticwebassets\\Assets\\css\\ScrollProgress.css"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\Portfolio\\wwwroot\\Assets\\css\\SecretWindow.css",
+      "PackagePath": "staticwebassets\\Assets\\css\\SecretWindow.css"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\Portfolio\\wwwroot\\Assets\\css\\Skills.css",
+      "PackagePath": "staticwebassets\\Assets\\css\\Skills.css"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\Portfolio\\wwwroot\\Assets\\css\\ThemeToggle.css",
+      "PackagePath": "staticwebassets\\Assets\\css\\ThemeToggle.css"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\Portfolio\\wwwroot\\Assets\\css\\ThemeTransitions.css",
+      "PackagePath": "staticwebassets\\Assets\\css\\ThemeTransitions.css"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\Portfolio\\wwwroot\\Assets\\css\\app.css",
+      "PackagePath": "staticwebassets\\Assets\\css\\app.css"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\Portfolio\\wwwroot\\Assets\\css\\global.css",
+      "PackagePath": "staticwebassets\\Assets\\css\\global.css"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\Portfolio\\wwwroot\\Assets\\email-template.html",
+      "PackagePath": "staticwebassets\\Assets\\email-template.html"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\Portfolio\\wwwroot\\Assets\\email-template.txt",
+      "PackagePath": "staticwebassets\\Assets\\email-template.txt"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\Portfolio\\wwwroot\\Assets\\js\\email-service.js",
+      "PackagePath": "staticwebassets\\Assets\\js\\email-service.js"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\Portfolio\\wwwroot\\Assets\\js\\emoji-animations.js",
+      "PackagePath": "staticwebassets\\Assets\\js\\emoji-animations.js"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\Portfolio\\wwwroot\\Assets\\js\\navbar-enhancements.js",
+      "PackagePath": "staticwebassets\\Assets\\js\\navbar-enhancements.js"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\Portfolio\\wwwroot\\Assets\\js\\navigation.js",
+      "PackagePath": "staticwebassets\\Assets\\js\\navigation.js"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\Portfolio\\wwwroot\\Assets\\js\\phaser.min.js",
+      "PackagePath": "staticwebassets\\Assets\\js\\phaser.min.js"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\Portfolio\\wwwroot\\Assets\\js\\scroll-effects.js",
+      "PackagePath": "staticwebassets\\Assets\\js\\scroll-effects.js"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\Portfolio\\wwwroot\\Assets\\js\\scroll-progress.js",
+      "PackagePath": "staticwebassets\\Assets\\js\\scroll-progress.js"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\Portfolio\\wwwroot\\Assets\\js\\secretwindow-interop.js",
+      "PackagePath": "staticwebassets\\Assets\\js\\secretwindow-interop.js"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\Portfolio\\wwwroot\\Assets\\js\\secretwindow-scrolllock.js",
+      "PackagePath": "staticwebassets\\Assets\\js\\secretwindow-scrolllock.js"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\Portfolio\\wwwroot\\Assets\\js\\skills-animation.js",
+      "PackagePath": "staticwebassets\\Assets\\js\\skills-animation.js"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\Portfolio\\wwwroot\\Assets\\js\\sky-drop-drag.js",
+      "PackagePath": "staticwebassets\\Assets\\js\\sky-drop-drag.js"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\Portfolio\\wwwroot\\Assets\\js\\theme-manager.js",
+      "PackagePath": "staticwebassets\\Assets\\js\\theme-manager.js"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\Portfolio\\wwwroot\\Assets\\sounds\\retro-sounds.js",
+      "PackagePath": "staticwebassets\\Assets\\sounds\\retro-sounds.js"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\Portfolio\\wwwroot\\games\\asteroids.html",
+      "PackagePath": "staticwebassets\\games\\asteroids.html"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\Portfolio\\wwwroot\\games\\asteroids.js",
+      "PackagePath": "staticwebassets\\games\\asteroids.js"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\Portfolio\\wwwroot\\games\\enhanced-snake.html",
+      "PackagePath": "staticwebassets\\games\\enhanced-snake.html"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\Portfolio\\wwwroot\\games\\enhanced-snake.js",
+      "PackagePath": "staticwebassets\\games\\enhanced-snake.js"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\Portfolio\\wwwroot\\games\\pacman.html",
+      "PackagePath": "staticwebassets\\games\\pacman.html"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\Portfolio\\wwwroot\\games\\pacman.js",
+      "PackagePath": "staticwebassets\\games\\pacman.js"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\Portfolio\\wwwroot\\games\\pong.html",
+      "PackagePath": "staticwebassets\\games\\pong.html"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\Portfolio\\wwwroot\\games\\pong.js",
+      "PackagePath": "staticwebassets\\games\\pong.js"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\Portfolio\\wwwroot\\games\\snake.html",
+      "PackagePath": "staticwebassets\\games\\snake.html"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\Portfolio\\wwwroot\\games\\snake.js",
+      "PackagePath": "staticwebassets\\games\\snake.js"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\Portfolio\\wwwroot\\games\\space-invaders.html",
+      "PackagePath": "staticwebassets\\games\\space-invaders.html"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\Portfolio\\wwwroot\\games\\space-invaders.js",
+      "PackagePath": "staticwebassets\\games\\space-invaders.js"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\Portfolio\\wwwroot\\games\\tetris.html",
+      "PackagePath": "staticwebassets\\games\\tetris.html"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\Portfolio\\wwwroot\\games\\tetris.js",
+      "PackagePath": "staticwebassets\\games\\tetris.js"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\Portfolio\\wwwroot\\games\\working-snake.html",
+      "PackagePath": "staticwebassets\\games\\working-snake.html"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\Portfolio\\wwwroot\\games\\working-snake.js",
+      "PackagePath": "staticwebassets\\games\\working-snake.js"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\Portfolio\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "C:\\Users\\user\\Desktop\\Portfolio\\wwwroot\\tailwind.css",
+      "PackagePath": "staticwebassets\\tailwind.css"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.Portfolio.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.Portfolio.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.build.Portfolio.props",
+      "PackagePath": "build\\Portfolio.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.buildMultiTargeting.Portfolio.props",
+      "PackagePath": "buildMultiTargeting\\Portfolio.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.buildTransitive.Portfolio.props",
+      "PackagePath": "buildTransitive\\Portfolio.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

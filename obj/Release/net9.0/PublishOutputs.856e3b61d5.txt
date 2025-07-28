@@ -1,0 +1,6 @@
+C:\Users\user\Desktop\Portfolio\dist\publish\web.config
+C:\Users\user\Desktop\Portfolio\dist\package-lock.json
+C:\Users\user\Desktop\Portfolio\dist\publish\package-lock.json
+C:\Users\user\Desktop\Portfolio\dist\publish\Portfolio.staticwebassets.endpoints.json
+C:\Users\user\Desktop\Portfolio\dist\publish\wwwroot\_framework\blazor.boot.json
+C:\Users\user\Desktop\Portfolio\dist\web.config

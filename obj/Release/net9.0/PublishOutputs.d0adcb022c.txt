@@ -1,0 +1,2 @@
+C:\Users\user\Desktop\Portfolio\publish\package-lock.json
+C:\Users\user\Desktop\Portfolio\publish\web.config

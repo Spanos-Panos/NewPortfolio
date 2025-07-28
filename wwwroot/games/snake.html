@@ -10,6 +10,7 @@
       width: 100%;
       margin: 0;
       padding: 0;
+<<<<<<< HEAD
       background: transparent;
       overflow: hidden;
       font-family: 'Courier New', monospace;
@@ -82,10 +83,24 @@
       0% { width: 0%; }
       50% { width: 70%; }
       100% { width: 100%; }
+=======
+      background: #111;
+      overflow: hidden;
+    }
+    #game-container {
+      width: 100vw;
+      height: 100vh;
+      max-width: 100vw;
+      max-height: 100vh;
+      overflow: hidden;
+      position: fixed;
+      left: 0; top: 0;
+>>>>>>> fb5c78fbf98dd6cf51c97935c738ae64d6b0fc24
     }
   </style>
 </head>
 <body>
+<<<<<<< HEAD
   <div id="game-container">
     <!-- Loading overlay (will be removed by JavaScript) -->
     <div class="loading-overlay" id="loading-overlay">
@@ -109,6 +124,10 @@
       console.log('[Snake] Container computed style:', window.getComputedStyle(container));
     });
   </script>
+=======
+  <div id="game-container" style="width:100vw;height:100vh;"></div>
+  <script src="https://cdn.jsdelivr.net/npm/phaser@3.70.0/dist/phaser.min.js"></script>
+>>>>>>> fb5c78fbf98dd6cf51c97935c738ae64d6b0fc24
   <script src="snake.js"></script>
 </body>
 </html>

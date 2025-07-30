@@ -350,4 +350,64 @@
 /* Add padding to body to account for fixed navbar */
 body {
     padding-top: 70px;
+}
+
+/* === EYE TRACKING ANIMATION === */
+.eyes-container {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    justify-content: center;
+}
+
+.eye {
+    width: 14px;
+    height: 14px;
+    background: #ffffff;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(102, 126, 234, 0.3);
+    box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.1);
+}
+
+.pupil {
+    width: 6px;
+    height: 6px;
+    background: #000000;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Enhance eye appearance on hover */
+.navbar-link:hover .eye {
+    border-color: rgba(102, 126, 234, 0.6);
+    box-shadow: 
+        inset 0 0 3px rgba(0, 0, 0, 0.1),
+        0 0 8px rgba(102, 126, 234, 0.4);
+}
+
+/* Eye glow effect when active */
+.navbar-link.active .eye {
+    border-color: rgba(102, 126, 234, 0.8);
+    box-shadow: 
+        inset 0 0 3px rgba(0, 0, 0, 0.1),
+        0 0 12px rgba(102, 126, 234, 0.6);
+}
+
+/* Pupil animation enhancement */
+.pupil {
+    animation: pupil-blink 4s infinite ease-in-out;
+}
+
+@keyframes pupil-blink {
+    0%, 90%, 100% { transform: translate(-50%, -50%) scaleY(1); }
+    95% { transform: translate(-50%, -50%) scaleY(0.1); }
 }}

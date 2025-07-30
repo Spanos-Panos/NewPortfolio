@@ -74,24 +74,11 @@ function handleKeyClick(e) {
     if (droppedKey) {
         droppedKey.remove();
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
-    // Create new key
-    droppedKey = document.createElement('div');
-    droppedKey.className = 'dropped-key';
-    droppedKey.innerHTML = '🔑<div class="gloss"></div>';
-=======
     
     // Create new key
     droppedKey = document.createElement('div');
-    droppedKey.innerHTML = '🔑';
->>>>>>> ca51de71d698d204d22ded291e0b59d5f5d0ab89
-=======
-    // Create new key
-    droppedKey = document.createElement('div');
     droppedKey.className = 'dropped-key';
     droppedKey.innerHTML = '🔑<div class="gloss"></div>';
->>>>>>> fb5c78fbf98dd6cf51c97935c738ae64d6b0fc24
     droppedKey.style.cssText = `
         position: fixed;
         top: -100px;
@@ -100,20 +87,9 @@ function handleKeyClick(e) {
         cursor: grab;
         z-index: 10000;
         user-select: none;
-<<<<<<< HEAD
-<<<<<<< HEAD
         transition: all 0.5s ease, box-shadow 0.2s, filter 0.2s;
         filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.8));
         background: none;
-=======
-        transition: all 0.5s ease;
-        filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.8));
->>>>>>> ca51de71d698d204d22ded291e0b59d5f5d0ab89
-=======
-        transition: all 0.5s ease, box-shadow 0.2s, filter 0.2s;
-        filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.8));
-        background: none;
->>>>>>> fb5c78fbf98dd6cf51c97935c738ae64d6b0fc24
     `;
     
     document.body.appendChild(droppedKey);
@@ -168,13 +144,6 @@ function setupDragging() {
         
         if (droppedKey) {
             droppedKey.style.cursor = 'grab';
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-            
->>>>>>> ca51de71d698d204d22ded291e0b59d5f5d0ab89
-=======
->>>>>>> fb5c78fbf98dd6cf51c97935c738ae64d6b0fc24
             // Check if overlapping the locker
             const locker = document.getElementById('secret-target');
             if (locker) {
@@ -186,48 +155,17 @@ function setupDragging() {
                     keyRect.bottom > lockerRect.top &&
                     keyRect.top < lockerRect.bottom
                 ) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> fb5c78fbf98dd6cf51c97935c738ae64d6b0fc24
                     // --- UNLOCK: Fade out key, trigger Blazor event ---
+                    console.log('🔓 KEY OVERLAPS LOCKER!');
                     droppedKey.style.transition = 'opacity 0.5s';
                     droppedKey.style.opacity = '0';
                     setTimeout(() => { if (droppedKey) droppedKey.remove(); }, 500);
                     // Dispatch custom event for Blazor interop
                     window.dispatchEvent(new CustomEvent('show-secret-window'));
-<<<<<<< HEAD
                     return;
                 }
             }
-            // No fallback: key does nothing unless on locker
-=======
-                    console.log('🔓 KEY OVERLAPS LOCKER!');
-                    droppedKey.style.animation = 'pulse 1s infinite';
-                    droppedKey.style.filter = 'drop-shadow(0 0 20px gold)';
-                    setTimeout(() => {
-                        alert('🎉 Congratulations! Secret unlocked!');
-                    }, 500);
-                    return;
-                }
-            }
-            // Fallback: check if near bottom for success
-            const rect = droppedKey.getBoundingClientRect();
-            if (rect.top > window.innerHeight - 150) {
-                console.log('🎉 SUCCESS!');
-                droppedKey.style.animation = 'pulse 1s infinite';
-                droppedKey.style.filter = 'drop-shadow(0 0 20px gold)';
-                setTimeout(() => {
-                    alert('🎉 Congratulations! Secret unlocked!');
-                }, 500);
-            }
->>>>>>> ca51de71d698d204d22ded291e0b59d5f5d0ab89
-=======
-                    return;
-                }
-            }
-            // No fallback: key does nothing unless on locker
->>>>>>> fb5c78fbf98dd6cf51c97935c738ae64d6b0fc24
+            // No unlock occurred - key does nothing unless on locker
         }
     });
 }
@@ -286,10 +224,6 @@ const emergencyInterval = setInterval(() => {
     }
 }, 1000);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> fb5c78fbf98dd6cf51c97935c738ae64d6b0fc24
 // --- GLOSS EFFECT CSS ---
 function injectGlossCSS() {
     if (document.getElementById('key-gloss-style')) return;
@@ -479,11 +413,6 @@ function loadGameScript(src) {
     document.body.appendChild(script);
 }
 
-<<<<<<< HEAD
-=======
->>>>>>> ca51de71d698d204d22ded291e0b59d5f5d0ab89
-=======
->>>>>>> fb5c78fbf98dd6cf51c97935c738ae64d6b0fc24
 // Global test functions
 window.testKey = () => {
     console.log('🧪 Testing key trigger...');
